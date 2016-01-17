@@ -1,0 +1,13 @@
+{
+  "name": "Gmail",
+  "homepage": "https://github.com/GonikDaniel/Gmail-clone",
+  "authors": [
+    "Gonik Daniel <gonik.daniel88@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,5 @@
+{
+  "directory": "src/client/scripts/",
+  "analytics": false,
+  "timeout": 120000
+}
