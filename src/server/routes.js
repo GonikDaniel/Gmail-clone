@@ -1,8 +1,11 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
 
 // Load Express Configuration
 require('./expressConfig')(app, express);
+
+app.use(cors());
 
 // Root route
 app.get('/', function(req, res){

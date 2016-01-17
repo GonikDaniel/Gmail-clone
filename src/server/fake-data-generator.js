@@ -16,7 +16,8 @@ function aMail() {
     content: faker.lorem.paragraph(),
     email: faker.internet.email(),
     date: faker.date.past(),
-    important: Math.random() < 0.5 // random boolean
+    read: Math.random() < 0.5, // random boolean
+    important: Math.random() < 0.5
   };
 }
 var data = {

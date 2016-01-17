@@ -1,13 +1,13 @@
-<a href="" class="list-group-item" ng-class="{ important: mail.important === true }" data-mail-id={{mail.id}}>
+<a href="" class="list-group-item" ng-class="{ read: mail.read === true }" data-mail-id={{mail.id}}>
     <div class="checkbox">
         <label>
             <input type="checkbox">
         </label>
     </div>
-    <span class="glyphicon glyphicon-star"></span>
-    <span class="name" style="min-width: 120px; display: inline-block;">{{mail.sender}}</span>
+    <span ng-class="mail.important ? 'glyphicon-star-empty' : 'glyphicon-star'" class="glyphicon"></span>
+    <span class="name mail-sender">{{mail.sender}}</span>
     <span class="">{{mail.title}}</span>
-    <span class="text-muted" style="font-size: 11px;">- {{ mail.content | limitTo:20 }}</span>
+    <span class="text-muted mail-content-short">- {{ mail.content | limitTo:20 }}</span>
     <span class="badge">{{ mail.date | date:'hh:mm a' }}</span>
     <span class="pull-right">
         <span class="glyphicon glyphicon-paperclip"></span>

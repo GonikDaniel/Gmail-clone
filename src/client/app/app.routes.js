@@ -4,7 +4,8 @@
     angular.module('dgGmail')
 
     .config(['$routeProvider', '$locationProvider', 'RestangularProvider', function($routeProvider, $locationProvider, RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://localhost:3000/');
+        RestangularProvider.setBaseUrl('http://localhost:6660/');
+        // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
 
         $routeProvider
             .when('/', {
