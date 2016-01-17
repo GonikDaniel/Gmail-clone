@@ -51,3 +51,4 @@ node_modules
 bower_components
 coverage/
 dist/
+src/client/scripts

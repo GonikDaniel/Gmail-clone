@@ -4,11 +4,22 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GonikDaniel/Gmail-clone.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.8.2",
+    "compression": "^1.1.0",
+    "cors": "^2.2.0",
+    "express": "^4.9.3",
+    "lodash": "3.x",
+    "method-override": "^1.0.0",
+    "morgan": "^1.1.1",
+    "serve-favicon": "^2.0.1"
   },
   "author": "Daniel Gonik <gonik.daniel88@gmail.com> (http://igonik.ru/)",
   "license": "MIT",

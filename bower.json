@@ -1,5 +1,5 @@
 {
-  "name": "Gmail",
+  "name": "dgGmail",
   "homepage": "https://github.com/GonikDaniel/Gmail-clone",
   "authors": [
     "Gonik Daniel <gonik.daniel88@gmail.com>"
@@ -9,5 +9,18 @@
   "moduleType": [
     "es6"
   ],
+  "dependencies": {
+    "angular": "~1.4.x",
+    "angular-route": "~1.4.x",
+    "angular-animate": "~1.4.x",
+    "toastr": "~2.0.1",
+    "bootstrap": "~3.1.1",
+    "moment": "~2.6.0",
+    "jquery": "~2.1.0",
+    "font-awesome": "~4.5.x",
+    "spin.js": "spinjs#~2.3.2",
+    "angular-cookies": "~1.4.8",
+    "restangular": "~1.5.1"
+  },
   "license": "MIT"
 }
