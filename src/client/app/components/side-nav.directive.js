@@ -7,12 +7,12 @@
             restrict: 'E',
             templateUrl: 'app/components/side-nav.tpl.html',
             controller: ['$scope', '$location', function($scope, $location) {
-                $scope.isPage = function(name) {
-                    return new RegExp('/' + name + '($|/)').test($location.path());
+                $scope.isBoxActive = function(box) {
+                    return ~(box.indexOf($location.search().box));
                 };
 
-                $scope.goTo = function(mailbox) {
-                    $location.path('/' + mailbox);
+                $scope.openBox = function(mailbox) {
+                    $location.search('box', mailbox);
                 };
             }]
         };

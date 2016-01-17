@@ -6,7 +6,7 @@
     function mail(Restangular) {
 
         function getAllMails() {
-            return Restangular.all("mail").getList().$object;
+            return Restangular.all("mail").getList();
         }
 
         function getMailById(id) {

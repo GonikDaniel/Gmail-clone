@@ -5,10 +5,10 @@
 
     .config(['$routeProvider', '$locationProvider', 'RestangularProvider', function($routeProvider, $locationProvider, RestangularProvider) {
         RestangularProvider.setBaseUrl('http://localhost:3000/');
-        
+
         $routeProvider
             .when('/', {
-                redirectTo: '/admin'
+                redirectTo: '/mail'
             })
 
             .when('/mail', {

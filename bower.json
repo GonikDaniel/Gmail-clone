@@ -20,7 +20,8 @@
     "font-awesome": "~4.5.x",
     "spin.js": "spinjs#~2.3.2",
     "angular-cookies": "~1.4.8",
-    "restangular": "~1.5.1"
+    "restangular": "~1.5.1",
+    "underscore": "~1.8.3"
   },
   "license": "MIT"
 }
