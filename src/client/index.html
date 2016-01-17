@@ -2,87 +2,20 @@
 <html lang="en" ng-app="dgGmail">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAaCAYAAADWm14/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5FpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxNzNCOTUyQUM0QjlERjExOUFDQUVGQzNGNjAxODAwMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyMjgxQjFGQ0I1QTgxMUUxODE5Q0ZDNzVEMzgzMDI5QSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyMjgxQjFGQkI1QTgxMUUxODE5Q0ZDNzVEMzgzMDI5QSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2ICgxMy4wIDIwMTIwMzA1Lm0uNDE1IDIwMTIvMDMvMDU6MjE6MDA6MDApICAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpDOEE0QThBMkVFOEVFMTExODVGOEM1RkU2MzZFQUUxRCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxNzNCOTUyQUM0QjlERjExOUFDQUVGQzNGNjAxODAwMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnTj7qcAAAH9SURBVHja7FfBTsJAEJ0tHAgQCEixED/A+Af6B36KP6RfIojcPXGVGE8ePHlERTm0ta84OGyn7YoxXtzmZcbZnfdedzcpmtlsdm6MOUtAlcc7QjTGI88z5CXReOtc1pI/PmuGMOI4TpDEKKIojjZ5mMCuIQ8PDj974gtze0zx0U1Mq9UqJWPStRE9l5EN2DEv51ir1Wh+YqiKAhKYWC6XlDekoMtgMW3U6/VUE8PjIgqYYMcS9puUCds9ElJ8ywCbaDQaqrgmkCesHQcAbimeMcAmms0mRbgwOQCZS00CnLa4aoBNtFqt0uNwnQOXJp5rgE20220Kw7DwzYqAXnDkiRcaYBOdTmezvTJqsNegt0i81MB3TOwirhoYTt9VE91ud7OtHCXkHNZq4hp3xkDyPjSYvqkmer1e4W3HHNZo4uAEd7mBeI3gWjfh+/7WW8vdwJwmDi7mLb8DvDJBMFmqJoIg2NoJ5Kip4uAQnE5HIJ/9yatqYjAYbC4gck0cvTaf8xFI9K90E8PhMIUmjh6Nyx5V9QiU0R+/0NNpM2Miby05fLicjkA+/vi5lBBrijgcLmEx/FG+iXSupP9HO8BPb7TIEKHm0lt6BxyPjvYuFzv17XwJf2tUtSvwpwb+d+Dhfr71kZGRc/kd4J/sXvoPzBcqlUomR2xbeh8CDACqr+1+MexKPgAAAABJRU5ErkJggg=="/>
     <link rel="stylesheet" href="scripts/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <title>Gmail clone</title>
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3 col-md-2">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Mail <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Mail</a></li>
-                        <li><a href="#">Contacts</a></li>
-                        <li><a href="#">Tasks</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-9 col-md-10">
-                <!-- Split button -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default" style="padding: 3.5px;">
-                        <div class="checkbox" style="margin: 0;">
-                            <label>
-                                <input type="checkbox">
-                            </label>
-                        </div>
-                    </button>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">All</a></li>
-                        <li><a href="#">None</a></li>
-                        <li><a href="#">Read</a></li>
-                        <li><a href="#">Unread</a></li>
-                        <li><a href="#">Starred</a></li>
-                        <li><a href="#">Unstarred</a></li>
-                    </ul>
-                </div>
-                <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
-                       <span class="glyphicon glyphicon-refresh"></span>   </button>
-                <!-- Single button -->
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        More <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Mark all as read</a></li>
-                        <li class="divider"></li>
-                        <li class="text-center"><small class="text-muted">Select messages to see more actions</small></li>
-                    </ul>
-                </div>
-                <div class="pull-right">
-                    <span class="text-muted"><b>1</b>–<b>50</b> of <b>277</b></span>
-                    <div class="btn-group btn-group-sm">
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        <dg-top-nav></dg-top-nav>
         <hr />
+
         <div class="row">
-            <div class="col-sm-3 col-md-2">
-                <a href="#" class="btn btn-danger btn-sm btn-block" role="button">COMPOSE</a>
-                <hr />
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="#"><span class="badge pull-right">42</span> Inbox </a>
-                    </li>
-                    <li><a href="">Starred</a></li>
-                    <li><a href="">Important</a></li>
-                    <li><a href="">Sent Mail</a></li>
-                    <li><a href=""><span class="badge pull-right">3</span>Drafts</a></li>
-                </ul>
-            </div>
+            <dg-side-nav></dg-side-nav>
+
             <div class="col-sm-9 col-md-10">
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs">
@@ -152,9 +85,25 @@
     <script src="scripts/jquery/dist/jquery.js"></script>
     <script src="scripts/angular/angular.js"></script>
     <script src="scripts/angular-route/angular-route.js"></script>
+    <script src="scripts/lodash/dist/lodash.js"></script>
+    <script src="scripts/restangular/dist/restangular.js"></script>
+    <script src="scripts/angular-cookies/angular-cookies.min.js"></script>
     <script src="scripts/bootstrap/dist/js/bootstrap.js"></script>
     <script src="scripts/moment/min/moment.min.js"></script>
     <script src="scripts/spin.js/spin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+
+    <!-- app -->
+    <script src="app/app.module.js"></script>
+    <script src="app/app.routes.js"></script>
+
+    <!-- controllers -->
+    <script src="app/mail/index.controller.js"></script>
+    <script src="app/mail/read.controller.js"></script>
+    <script src="app/mail/create.controller.js"></script>
+
+    <!-- directives -->
+    <script src="app/components/side-nav.directive.js"></script>
+    <script src="app/components/top-nav.directive.js"></script>
 </body>
 </html>

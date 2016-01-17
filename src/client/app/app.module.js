@@ -3,9 +3,9 @@
 
     angular.module('dgGmail', [
         'ngRoute',
+        'ngCookies',
         'restangular',
-        'ngAnimate',
-        'ngCookies'
+        // 'ngAnimate',
     ]);
 
 })();

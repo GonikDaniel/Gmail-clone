@@ -26,5 +26,9 @@
   "bugs": {
     "url": "https://github.com/GonikDaniel/Gmail-clone/issues"
   },
-  "homepage": "https://github.com/GonikDaniel/Gmail-clone#readme"
+  "homepage": "https://github.com/GonikDaniel/Gmail-clone#readme",
+  "devDependencies": {
+    "faker": "^3.0.1",
+    "ramda": "^0.19.1"
+  }
 }

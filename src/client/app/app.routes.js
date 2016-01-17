@@ -1,7 +1,11 @@
 (function(){
     'use strict';
 
-    angular.module('dgGmail').config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    angular.module('dgGmail')
+
+    .config(['$routeProvider', '$locationProvider', 'RestangularProvider', function($routeProvider, $locationProvider, RestangularProvider) {
+        RestangularProvider.setBaseUrl('http://localhost:3000/');
+        
         $routeProvider
             .when('/', {
                 redirectTo: '/admin'
@@ -14,7 +18,7 @@
             })
 
             .when('/mail/new', {
-                templateUrl: 'app/mail/new.tpl.html',
+                templateUrl: 'app/mail/create.tpl.html',
                 controller: 'MailCreateController',
                 controllerAs: 'mail.new',
             })
