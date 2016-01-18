@@ -3,16 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/GonikDaniel/Gmail-clone.git"
   },
   "dependencies": {
+    "bower": "1.7.1",
     "body-parser": "^1.8.2",
     "compression": "^1.1.0",
     "cors": "^2.2.0",
@@ -21,6 +17,11 @@
     "method-override": "^1.0.0",
     "morgan": "^1.1.1",
     "serve-favicon": "^2.0.1"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install"
   },
   "author": "Daniel Gonik <gonik.daniel88@gmail.com> (http://igonik.ru/)",
   "license": "MIT",
