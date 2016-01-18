@@ -31,5 +31,9 @@
   "devDependencies": {
     "faker": "^3.0.1",
     "ramda": "^0.19.1"
+  },
+  "engines": {
+    "node": "0.12.7",
+    "npm": "3.3.9"
   }
 }
