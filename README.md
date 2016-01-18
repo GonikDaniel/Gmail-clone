@@ -4,7 +4,7 @@ Gmail-clone
 ## About ##
 
 
-You can see it working [here]() as well.
+You can see it working [here](https://gmail-clone.herokuapp.com/) as well.
 
 ## Requirements ##
 
@@ -15,7 +15,7 @@ You can see it working [here]() as well.
 ## Quick Start ##
 
 1. First clone the repository
-2. Then set the config files appropriate to your local settings and your personal preferences
+2. Then set the config files appropriate to your local settings and your personal preferences (currently you'll probably need to change only port for Express)
 3. npm i
 4. bower i
 5. npm start and serve data via express routes and configs
@@ -28,8 +28,10 @@ You can see it working [here]() as well.
 ## Details ##
 
 
-## Config ##
 
+## Config ##
+Currently I have several configs in src/server folder, in app.js (root) and in app.module/app.routes (src/client)
+Later I'll probably optimize it.
 
 ## Issues ##
 
