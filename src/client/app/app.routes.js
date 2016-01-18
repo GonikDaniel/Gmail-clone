@@ -5,42 +5,44 @@
 
     .constant('ENV', 'production')
 
-    .config(['$routeProvider', '$locationProvider', 'RestangularProvider', function($routeProvider, $locationProvider, RestangularProvider) {
-        if( ENV === 'production' ) {
-            RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
-        } else {
-            RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
-            // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
-        }
+    .config(['$routeProvider', '$locationProvider', 'RestangularProvider', 'ENV', 
 
-        $routeProvider
-            .when('/', {
-                redirectTo: '/mail'
-            })
+        function($routeProvider, $locationProvider, RestangularProvider, ENV) {
+            if( ENV === 'production' ) {
+                RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
+            } else {
+                RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
+                // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
+            }
 
-            .when('/mail', {
-                templateUrl: 'app/mail/index.tpl.html',
-                controller: 'MailIndexController',
-                controllerAs: 'mail.index'
-            })
+            $routeProvider
+                .when('/', {
+                    redirectTo: '/mail'
+                })
 
-            .when('/mail/new', {
-                templateUrl: 'app/mail/create.tpl.html',
-                controller: 'MailCreateController',
-                controllerAs: 'mail.new',
-            })
+                .when('/mail', {
+                    templateUrl: 'app/mail/index.tpl.html',
+                    controller: 'MailIndexController',
+                    controllerAs: 'mail.index'
+                })
 
-            .when('/mail/:id', {
-                templateUrl: 'app/mail/read.tpl.html',
-                controller: 'MailReadController',
-                controllerAs: 'mail.read',
-                // reloadOnSearch: false
-            })
+                .when('/mail/new', {
+                    templateUrl: 'app/mail/create.tpl.html',
+                    controller: 'MailCreateController',
+                    controllerAs: 'mail.new',
+                })
 
-            .otherwise({redirectTo: '/'});
-            // if(window.history && window.history.pushState){
-            //     $locationProvider.html5Mode(true);
-            // }
+                .when('/mail/:id', {
+                    templateUrl: 'app/mail/read.tpl.html',
+                    controller: 'MailReadController',
+                    controllerAs: 'mail.read',
+                    // reloadOnSearch: false
+                })
+
+                .otherwise({redirectTo: '/'});
+                // if(window.history && window.history.pushState){
+                //     $locationProvider.html5Mode(true);
+                // }
     }])
     
 
