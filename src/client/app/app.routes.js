@@ -18,8 +18,8 @@
         if( ENV === 'production' ) {
             RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
         } else {
-            // RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
-            RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
+            RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
+            // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
         }
 
         $routeProvider

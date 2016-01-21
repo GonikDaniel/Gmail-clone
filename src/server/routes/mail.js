@@ -3,7 +3,7 @@ var Mail = require('../models/mail');
 
 module.exports = function(app) {
   app.get('/mail', function(req, res) {
-    res.json(Mail.all());
+    res.json(Mail.all(req.query.box_like));
   });
 
   app.post('/mail', function(req, res) {

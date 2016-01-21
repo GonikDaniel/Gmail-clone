@@ -28,11 +28,11 @@ var data = {
 // other usecase
 // var data = {
 //     mail: {
-//         inbox: nLoop(700).map(aMail),
-//         starred: nLoop(100).map(aMail),
-//         important: nLoop(20).map(aMail),
-//         "sent mail": nLoop(300).map(aMail),
-//         drafts: nLoop(10).map(aMail),
+//         Inbox: nLoop(700).map(aMail),
+//         Starred: nLoop(100).map(aMail),
+//         Important: nLoop(20).map(aMail),
+//         Sent: nLoop(300).map(aMail),
+//         Drafts: nLoop(10).map(aMail),
 //     }
 // };
 require('fs').writeFileSync('db.json', JSON.stringify(data, null, 2), 'utf-8');
