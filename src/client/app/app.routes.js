@@ -30,7 +30,10 @@
             .when('/mail', {
                 templateUrl: 'app/mail/index.tpl.html',
                 controller: 'MailIndexController',
-                controllerAs: 'mail.index'
+                controllerAs: 'mail.index',
+                resolve: {
+                    mailPrepService: mailPrepService
+                }
             })
 
             .when('/mail/new', {
@@ -50,6 +53,11 @@
             // if(window.history && window.history.pushState){
             //     $locationProvider.html5Mode(true);
             // }
+    }
+
+    mailPrepService.$inject = ['mail'];
+    function mailPrepService(mail) {
+        mail.getAll();
     }
     
 })();

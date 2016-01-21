@@ -1,0 +1,4 @@
+{
+  "/mail/": "/",
+  "/mail/inbox": "/mail?box_like=Inbox"
+}

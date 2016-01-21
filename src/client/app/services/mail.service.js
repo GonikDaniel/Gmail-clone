@@ -2,11 +2,15 @@
     'use strict';
 
     angular.module('dgGmail').factory('mail', mail);
-    mail.$inject = ['Restangular'];
+    mail.$inject = ['Restangular', '$timeout'];
 
-    function mail(Restangular) {
+    function mail(Restangular, $timeout) {
+        var boxes = ['Inbox', 'Starred', 'Important', 'Sent', 'Drafts'];
+        var mailStorage = {};
+        var totals = {};
         var factory = {
             getAll: getAllMails,
+            getAllInBox: getAllInBox,
             getById: getMailById    
         };
 
@@ -15,7 +19,21 @@
         ///////////////////
 
         function getAllMails() {
-            return Restangular.all("mail").getList();
+            for (var i = 0; i < boxes.length; i++) {
+                getMailsInBox(boxes[i]);
+            }
+
+            function getMailsInBox(box) {
+                Restangular.all("mail?box_like=" + box).getList().then(function(mails) {
+                    mailStorage[box] = mails;
+                }, function(error) {
+                    console.log(error);
+                });
+            }
+        }
+
+        function getAllInBox(box) {
+            return mailStorage[box];
         }
 
         function getMailById(id) {
@@ -25,3 +43,11 @@
     }
     
 })();
+
+// getTotals with restangular
+// var rest = Restangular.withConfig(function(RestangularConfigurer) {
+//     RestangularConfigurer.setFullResponse(true);
+// });
+// rest.getList().then(function(response) {
+//     console.log(response.headers('X-Total-Count'));
+// });
