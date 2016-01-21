@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module('dgGmail').controller('MailIndexController', MailIndexController);
+    MailIndexController.$inject = ['$scope', '$location', 'mail'];
 
     function MailIndexController($scope, $location, mail) {
         // default mailbox is 'inbox'
