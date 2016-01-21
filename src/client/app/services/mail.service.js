@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('dgGmail').factory('mail', mail);
+    
     mail.$inject = ['Restangular', '$timeout'];
-
     function mail(Restangular, $timeout) {
         var boxes = ['Inbox', 'Starred', 'Important', 'Sent', 'Drafts'];
         var mailStorage = {};

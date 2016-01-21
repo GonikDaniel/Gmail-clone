@@ -1,13 +1,15 @@
 var _ = require('lodash');
 var db = require('../../../db.express.json');
+var db2 = require('../../../db.json');
 // var Category = require('./category');
 // var User = require('./user');
 var mails = db.mail;
 var lastId = 1;
 
-var buildMails = function() {
+var buildMails = function(rawData) {
   // Make a deep copy so we don't change the main mails array
-  var rawMails = JSON.parse(JSON.stringify(mails));
+  var data = rawData || mails;
+  var rawMails = JSON.parse(JSON.stringify(data));
   var builtMails = [];
   var mail;
 
@@ -20,7 +22,7 @@ var buildMails = function() {
 
 module.exports = {
   get: function(id) {
-    return _.find(buildMails(), function(mail){
+    return _.find(db2.mail, function(mail){
       return mail.id === id;
     });
   },
