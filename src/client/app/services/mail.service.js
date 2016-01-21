@@ -11,7 +11,8 @@
         var factory = {
             getAll: getAllMails,
             getAllInBox: getAllInBox,
-            getById: getMailById    
+            getTotals: getTotals,
+            getById: getMailById
         };
 
         return factory;
@@ -24,7 +25,7 @@
             }
 
             function getMailsInBox(box) {
-                Restangular.all("mail?box_like=" + box).getList().then(function(mails) {
+                Restangular.all('mail?box_like=' + box).getList().then(function(mails) {
                     mailStorage[box] = mails;
                 }, function(error) {
                     console.log(error);
@@ -33,11 +34,23 @@
         }
 
         function getAllInBox(box) {
+            countTotals();
             return mailStorage[box];
         }
 
         function getMailById(id) {
-            return Restangular.one("mail", id);
+            return Restangular.one('mail', id).get();
+        }
+
+        function countTotals() {
+            for (var i = 0; i < boxes.length; i++) {
+                totals[boxes[i]] = mailStorage[boxes[i]] ? mailStorage[boxes[i]].length : 0;
+            }
+            return totals;
+        }
+
+        function getTotals() {
+            return totals;
         }
 
     }

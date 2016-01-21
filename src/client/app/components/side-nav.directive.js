@@ -11,14 +11,21 @@
         };
     }
 
-    SideNavCtrl.$inject = ['$scope', '$location'];
-    function SideNavCtrl($scope, $location) {
+    SideNavCtrl.$inject = ['$scope', '$location', 'mail'];
+    function SideNavCtrl($scope, $location, mail) {
+        activate();
+
+        function activate() {
+            $scope.totals = mail.getTotals();
+        }
+
         $scope.isBoxActive = function(box) {
             return ~(box.indexOf($location.search().box));
         };
 
         $scope.openBox = function(mailbox) {
             $location.search('box', mailbox);
+            $scope.$emit('boxChange');
         };
     }
     

@@ -12,4 +12,41 @@ hr { margin-top: 5px;margin-bottom: 10px; }
 .nav-pills>li>a {padding: 5px 10px;}
 
 .mail-sender { min-width: 120px; display: inline-block; }
-.mail-content-short { font-size: 11px }
+.mail-content-short { font-size: 11px; }
+.full-mail { margin-top: 10px; }
+.full-mail-sender { margin-left: 10px; }
+.full-mail-content { 
+    font: 1.25em Arial,sans-serif;
+    line-height: 1.5;
+    font-weight: 200;
+    color: #676767;
+    background: rgba(238, 238, 238, .2); 
+    width: 95%; 
+    margin: 20px auto; 
+    padding: 20px; 
+    min-height: 200px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+    margin-bottom: 100px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #f5f5f5;
+}
+
+.footer .text-muted {
+    padding: 20px;
+    text-align: center;
+}

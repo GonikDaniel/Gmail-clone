@@ -42,7 +42,7 @@
                 controllerAs: 'mail.new',
             })
 
-            .when('/mail/:id', {
+            .when('/mail/:mailId', {
                 templateUrl: 'app/mail/read.tpl.html',
                 controller: 'MailReadController',
                 controllerAs: 'mail.read',

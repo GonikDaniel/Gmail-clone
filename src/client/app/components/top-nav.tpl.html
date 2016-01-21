@@ -34,7 +34,8 @@
             </ul>
         </div>
         <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
-               <span class="glyphicon glyphicon-refresh"></span>   </button>
+            <span class="glyphicon glyphicon-refresh"></span>
+        </button>
         <!-- Single button -->
         <div class="btn-group">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -47,12 +48,12 @@
             </ul>
         </div>
         <div class="pull-right">
-            <span class="text-muted"><b>1</b>–<b>50</b> of <b>277</b></span>
+            <span class="text-muted"><b>{{firstMail}}</b>–<b>{{lastMail}}</b> of <b>{{totals[box]}}</b></span>
             <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-default">
+                <button type="button" class="btn btn-default" ng-click="goToPage('back')">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
-                <button type="button" class="btn btn-default">
+                <button type="button" class="btn btn-default" ng-click="goToPage('forward')">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
             </div>
