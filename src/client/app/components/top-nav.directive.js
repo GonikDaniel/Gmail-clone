@@ -8,14 +8,18 @@
             replace: true,
             restrict: 'E',
             templateUrl: 'app/components/top-nav.tpl.html',
-            controller: TopNavCtrl
+            controller: TopNavCtrl,
+            controllerAs: 'topNavCtrl',
+            bindToController: true
         };
     }
 
     TopNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings'];
     function TopNavCtrl($scope, $location, mail, settings) {
+        var vm = this;
+
         var mailsByPage = settings.getMailsByPage();
-        $scope.page = settings.getPage();
+        vm.page = settings.getPage();
         
         paginationCalc();
         updateTotal();
@@ -23,13 +27,13 @@
         /////////////
 
         function updateTotal() {
-            $scope.box = $location.search().box;
-            $scope.totals = mail.getTotals();
+            vm.box = settings.getBox();
+            vm.totals = mail.getTotals();
         }
 
         function paginationCalc() {
-            $scope.firstMail = ($scope.page - 1) * mailsByPage + 1;
-            $scope.lastMail  = mailsByPage * $scope.page;
+            vm.firstMail = (vm.page - 1) * mailsByPage + 1;
+            vm.lastMail  = mailsByPage * vm.page;
         }
 
         $scope.$on('boxChange', function(){
@@ -40,15 +44,23 @@
             paginationCalc();
         });
 
-        $scope.goToPage = function(dir) {
-            if (dir === 'back' && $scope.page !== 1) {
-                $scope.page--;
-                settings.setPage($scope.page);
+        $scope.$watch('topNavCtrl.selectAllCheckbox', function(newValue) {
+             newValue ? vm.select('all') : vm.select('none');
+        });
+
+        vm.goToPage = function(dir) {
+            if (dir === 'back' && vm.page !== 1) {
+                vm.page--;
+                settings.setPage(vm.page);
             } else if (dir === 'forward') {
-                $scope.page++;
-                settings.setPage($scope.page);
+                vm.page++;
+                settings.setPage(vm.page);
             }
             $scope.$emit('pageChange');
+        };
+
+        vm.select = function(typeOfSelected) {
+            $scope.$broadcast('select', typeOfSelected);
         };
     }
 })();

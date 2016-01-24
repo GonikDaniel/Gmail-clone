@@ -1438,7 +1438,7 @@
       "email": "Dillan30@yahoo.com",
       "box": "Inbox",
       "date": "2015-12-08T21:43:11.775Z",
-      "read": false,
+      "read": true,
       "important": false
     },
     {
@@ -1500,12 +1500,12 @@
       "id": 137,
       "sender": "Melany Kertzmann",
       "title": "Incidunt earum voluptas quia tempore.",
-      "content": "Consequatur voluptatem neque.\nEst impedit voluptatem illo illum autem nam numquam expedita.\nVoluptates et dolor deserunt quidem velit.\nProvident ipsa quasi voluptate corrupti qui quia perferendis distinctio.\nCulpa ipsum nulla dolorem qui molestiae.",
-      "email": "Yolanda.Bogan@yahoo.com",
       "box": "Inbox",
+      "content": "Consequatur voluptatem neque. Est impedit voluptatem illo illum autem nam numquam expedita. Voluptates et dolor deserunt quidem velit. Provident ipsa quasi voluptate corrupti qui quia perferendis distinctio. Culpa ipsum nulla dolorem qui molestiae.",
       "date": "2015-12-30T21:43:32.975Z",
-      "read": true,
-      "important": false
+      "email": "Yolanda.Bogan@yahoo.com",
+      "important": false,
+      "read": true
     },
     {
       "id": 138,

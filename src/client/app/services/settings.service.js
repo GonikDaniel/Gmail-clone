@@ -3,8 +3,8 @@
 
     angular.module('dgGmail').factory('settings', settings);
 
-    settings.$inject = ['$location', 'mail', '$timeout'];
-    function settings($location, mail, $timeout) {
+    settings.$inject = ['$location', '$timeout'];
+    function settings($location, $timeout) {
         // default mailbox is 'inbox' and page - 1
         var box = 'Inbox';
         var page = 1;

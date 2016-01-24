@@ -17,7 +17,7 @@
             <button type="button" class="btn btn-default" style="min-height: 34px;">
                 <div class="checkbox" style="margin: 0;">
                     <label>
-                        <input type="checkbox">
+                        <input type="checkbox" ng-model="topNavCtrl.selectAllCheckbox">
                     </label>
                 </div>
             </button>
@@ -25,15 +25,15 @@
                 <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">All</a></li>
-                <li><a href="#">None</a></li>
-                <li><a href="#">Read</a></li>
-                <li><a href="#">Unread</a></li>
-                <li><a href="#">Starred</a></li>
-                <li><a href="#">Unstarred</a></li>
+                <li><a href="" ng-click="topNavCtrl.select('all')">All</a></li>
+                <li><a href="" ng-click="topNavCtrl.select('none')">None</a></li>
+                <li><a href="">Read</a></li>
+                <li><a href="">Unread</a></li>
+                <li><a href="">Starred</a></li>
+                <li><a href="">Unstarred</a></li>
             </ul>
         </div>
-        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
+        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh" ng-click="">
             <span class="glyphicon glyphicon-refresh"></span>
         </button>
         <!-- Single button -->
@@ -48,12 +48,12 @@
             </ul>
         </div>
         <div class="pull-right">
-            <span class="text-muted"><b>{{firstMail}}</b>–<b>{{lastMail}}</b> of <b>{{totals[box]}}</b></span>
+            <span class="text-muted"><b>{{topNavCtrl.firstMail}}</b>–<b>{{topNavCtrl.lastMail}}</b> of <b>{{topNavCtrl.totals[topNavCtrl.box].all}}</b></span>
             <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-default" ng-click="goToPage('back')">
+                <button type="button" class="btn btn-default" ng-click="topNavCtrl.goToPage('back')">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
-                <button type="button" class="btn btn-default" ng-click="goToPage('forward')">
+                <button type="button" class="btn btn-default" ng-click="topNavCtrl.goToPage('forward')">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </button>
             </div>

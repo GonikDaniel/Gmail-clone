@@ -7,17 +7,21 @@
             replace: true,
             restrict: 'E',
             templateUrl: 'app/components/tab-nav.tpl.html',
-            controller: TabNavCtrl
+            controller: TabNavCtrl,
+            controllerAs: 'tabNavCtrl',
+            bindToController: true
         };
     }
 
     TabNavCtrl.$inject = ['$scope', '$location'];
     function TabNavCtrl($scope, $location) {
-        $scope.isTab = function(name) {
+        var vm = this;
+
+        vm.isTab = function(name) {
             return new RegExp('/' + name + '($|/)').test($location.path());
         };
 
-        $scope.changeTab = function(tab) {
+        vm.changeTab = function(tab) {
             $location.search('tab', tab);
         };
     }

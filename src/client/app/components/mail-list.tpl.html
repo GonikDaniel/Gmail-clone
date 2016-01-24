@@ -1,7 +1,7 @@
 <a href="" class="list-group-item" ng-class="{ read: mail.read === true }" data-mail-id="{{mail.id}}" ng-href="#/mail/{{mail.id}}">
     <div class="checkbox">
         <label>
-            <input type="checkbox">
+            <input type="checkbox" ng-model="mail.selected">
         </label>
     </div>
     <span ng-class="mail.important ? 'glyphicon-star-empty' : 'glyphicon-star'" class="glyphicon"></span>

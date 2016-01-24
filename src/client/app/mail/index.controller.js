@@ -17,6 +17,9 @@
         function activate(box) {
             $timeout(function() {
                 vm.mails = mail.getAllInBox(box);
+                vm.mails.forEach( function(item, index) {
+                    item.selected = false;
+                });
             }, 300);
 
             vm.fromMail = vm.page * vm.mailsByPage;
@@ -32,6 +35,24 @@
             vm.mails = mail.getAllInBox(box);
             vm.fromMail = vm.page * vm.mailsByPage;
 
+        });
+
+        $scope.$on('select', function(e, typeOfSelected){
+            switch (typeOfSelected) {
+                case 'all':
+                    vm.mails.forEach( function(item, index) {
+                        item.selected = true;
+                    });
+                    break;
+                case 'none':
+                    vm.mails.forEach( function(item, index) {
+                        item.selected = false;
+                    });
+                    break;
+                default:
+                    console.log('Event "selected" occured');
+                    break;
+            }
         });
 
     }

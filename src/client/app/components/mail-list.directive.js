@@ -12,22 +12,22 @@
             },
             templateUrl: 'app/components/mail-list.tpl.html',
             controller: MailListCtrl,
+            controllerAs: 'mailListCtrl',
             link: link
         };
     }
     
     MailListCtrl.$inject = ['$scope', '$location', '$compile'];
     function MailListCtrl($scope, $location, $compile) {
+        var vm = this;
 
-        $scope.readMail = function(id) {
+        vm.readMail = function(id) {
             $location.search('mail', id);
         };
-        this.$compile = $compile;
+        
     }
 
     function link(scope, elem, attr, ctrl) {
-        // scope.$on('boxChange', function(e, box){
-        //     ctrl.$compile(elem)(scope);
-        // });
+        
     }
 })();

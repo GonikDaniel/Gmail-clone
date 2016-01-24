@@ -3,16 +3,17 @@
 
     angular.module('dgGmail').factory('mail', mail);
     
-    mail.$inject = ['Restangular', '$timeout'];
-    function mail(Restangular, $timeout) {
+    mail.$inject = ['Restangular', '$timeout', 'settings'];
+    function mail(Restangular, $timeout, settings) {
         var boxes = ['Inbox', 'Starred', 'Important', 'Sent', 'Drafts'];
         var mailStorage = {};
         var totals = {};
         var factory = {
             getAll: getAllMails,
             getAllInBox: getAllInBox,
+            getById: getMailById,
             getTotals: getTotals,
-            getById: getMailById
+            updateTotals: updateTotals
         };
 
         return factory;
@@ -39,12 +40,27 @@
         }
 
         function getMailById(id) {
+            var box = settings.getBox();
+            if (mailStorage[box]) {
+                var selectedMail = _.find(mailStorage[box], function(mail){
+                    return mail.id === +id;
+                });
+                
+                selectedMail.unread = true;
+            }
             return Restangular.one('mail', id).get();
         }
 
         function countTotals() {
             for (var i = 0; i < boxes.length; i++) {
-                totals[boxes[i]] = mailStorage[boxes[i]] ? mailStorage[boxes[i]].length : 0;
+                totals[boxes[i]] = {};
+                totals[boxes[i]].all = mailStorage[boxes[i]] ? mailStorage[boxes[i]].length : 0;
+                totals[boxes[i]].unread = mailStorage[boxes[i]] ? mailStorage[boxes[i]].filter(function(mail) {
+                    return mail.read === false;
+                }).length : 0;
+                totals[boxes[i]].important = mailStorage[boxes[i]] ? mailStorage[boxes[i]].filter(function(mail) {
+                    return mail.important === true;
+                }).length : 0;
             }
             return totals;
         }
@@ -53,14 +69,15 @@
             return totals;
         }
 
+        function updateTotals(box, typeOfTotal, operator) {
+            getAllMails();
+            if (operator === '-') {
+                totals[box] ? totals[box][typeOfTotal]-- : angular.noop();
+            } else if (operator === '+') {
+                totals[box] ? totals[box][typeOfTotal]++ : angular.noop();
+            }
+        }
+
     }
     
 })();
-
-// getTotals with restangular
-// var rest = Restangular.withConfig(function(RestangularConfigurer) {
-//     RestangularConfigurer.setFullResponse(true);
-// });
-// rest.getList().then(function(response) {
-//     console.log(response.headers('X-Total-Count'));
-// });

@@ -1,16 +1,36 @@
 <div class="col-sm-3 col-md-2">
-    <a href="#" class="btn btn-danger btn-sm btn-block" role="button">COMPOSE</a>
+    <a href="#" class="btn btn-danger btn-sm btn-block" role="button">WRITE</a>
     <hr />
     <ul class="nav nav-pills nav-stacked">
-        <li ng-class="{ active: isBoxActive('Inbox') }"
-            ng-click="openBox('Inbox')"><a href=""><span class="badge pull-right">{{totals.Inbox}}</span>Inbox</a></li>
-        <li ng-class="{ active: isBoxActive('Starred') }"
-        ng-click="openBox('Starred')"><a href=""><span class="badge pull-right">{{totals.Starred}}</span>Starred</a></li>
-        <li ng-class="{ active: isBoxActive('Important') }"
-        ng-click="openBox('Important')"><a href=""><span class="badge pull-right">{{totals.Important}}</span>Important</a></li>
-        <li ng-class="{ active: isBoxActive('Sent') }"
-        ng-click="openBox('Sent')"><a href=""><span class="badge pull-right">{{totals.Sent}}</span>Sent Mail</a></li>
-        <li ng-class="{ active: isBoxActive('Drafts') }"
-            ng-click="openBox('Drafts')"><a href=""><span class="badge pull-right">{{totals.Drafts}}</span>Drafts</a></li>
+        <li ng-class="{ active: sideNavCtrl.isBoxActive('Inbox') }"
+            ng-click="sideNavCtrl.openBox('Inbox')">
+            <a href="">
+                <span class="badge pull-right">{{sideNavCtrl.totals.Inbox.unread}}</span>Inbox
+            </a>
+        </li>
+        <li ng-class="{ active: sideNavCtrl.isBoxActive('Starred') }"
+            ng-click="sideNavCtrl.openBox('Starred')">
+            <a href="">
+                <span class="badge pull-right">{{sideNavCtrl.totals.Starred.unread}}</span>Starred
+            </a>
+        </li>
+        <li ng-class="{ active: sideNavCtrl.isBoxActive('Important') }"
+            ng-click="sideNavCtrl.openBox('Important')">
+            <a href="">
+                <span class="badge pull-right">{{sideNavCtrl.totals.Important.unread}}</span>Important
+            </a>
+        </li>
+        <li ng-class="{ active: sideNavCtrl.isBoxActive('Sent') }"
+            ng-click="sideNavCtrl.openBox('Sent')">
+            <a href="">
+                <span class="badge pull-right">{{sideNavCtrl.totals.Sent.unread}}</span>Sent Mail
+            </a>
+        </li>
+        <li ng-class="{ active: sideNavCtrl.isBoxActive('Drafts') }"
+            ng-click="sideNavCtrl.openBox('Drafts')">
+            <a href="">
+                <span class="badge pull-right">{{sideNavCtrl.totals.Drafts.unread}}</span>Drafts
+            </a>
+        </li>
     </ul>
 </div>
