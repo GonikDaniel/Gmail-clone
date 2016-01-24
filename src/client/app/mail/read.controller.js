@@ -5,11 +5,12 @@
 
     MailReadController.$inject = ['$scope', '$routeParams', 'mail'];
     function MailReadController($scope, $routeParams, mail) {
+        var vm = this;
         var mailId = $routeParams.mailId;
 
         mail.getById(mailId).then(function(mail) {
-            $scope.mail = mail;
-            $scope.mail.ago = moment($scope.mail.date).fromNow();
+            vm.mail = mail;
+            vm.mail.ago = moment(vm.mail.date).fromNow();
         }, function(error) {
             console.log(error);
         });

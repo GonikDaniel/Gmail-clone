@@ -5,25 +5,35 @@
     
     MailIndexController.$inject = ['$scope', '$location', '$timeout', 'mail', 'settings'];
     function MailIndexController($scope, $location, $timeout, mail, settings) {
+        var vm = this;
+
         var box = settings.getBox();
-        $scope.page = settings.getPage();
-        $scope.mailsByPage = settings.getMailsByPage();
+        vm.page = settings.getPage();
+        vm.mailsByPage = settings.getMailsByPage();
         activate(box);
 
         /////////////////
 
         function activate(box) {
             $timeout(function() {
-                $scope.mails = mail.getAllInBox(box);
-            }, 1000);
+                vm.mails = mail.getAllInBox(box);
+            }, 300);
 
-            $scope.fromMail = $scope.page * $scope.mailsByPage;
+            vm.fromMail = vm.page * vm.mailsByPage;
             // mail.getAll().then(function(mails) {
-            //     $scope.mails = mails;
+            //     vm.mails = mails;
             // }, function(error) {
             //     console.log(error);
             // });  
         }
+
+        $scope.$on('boxChange', function(e, box){
+
+            vm.mails = mail.getAllInBox(box);
+            vm.fromMail = vm.page * vm.mailsByPage;
+
+        });
+
     }
     
 })();

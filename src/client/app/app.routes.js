@@ -3,8 +3,8 @@
 
     angular.module('dgGmail')
 
-    .constant('ENV', 'production')
-    // .constant('ENV', 'dev')
+    // .constant('ENV', 'production')
+    .constant('ENV', 'dev')
 
     .config(config)    
 
@@ -18,8 +18,8 @@
         if( ENV === 'production' ) {
             RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
         } else {
-            RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
-            // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
+            // RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
+            RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
         }
 
         $routeProvider
@@ -30,7 +30,7 @@
             .when('/mail', {
                 templateUrl: 'app/mail/index.tpl.html',
                 controller: 'MailIndexController',
-                controllerAs: 'mail.index',
+                controllerAs: 'indexCtrl',
                 resolve: {
                     mailPrepService: mailPrepService
                 }
@@ -39,13 +39,13 @@
             .when('/mail/new', {
                 templateUrl: 'app/mail/create.tpl.html',
                 controller: 'MailCreateController',
-                controllerAs: 'mail.new',
+                controllerAs: 'createCtrl',
             })
 
             .when('/mail/:mailId', {
                 templateUrl: 'app/mail/read.tpl.html',
                 controller: 'MailReadController',
-                controllerAs: 'mail.read',
+                controllerAs: 'readCtrl',
                 // reloadOnSearch: false
             })
 

@@ -11,8 +11,8 @@
         };
     }
 
-    SideNavCtrl.$inject = ['$scope', '$location', 'mail'];
-    function SideNavCtrl($scope, $location, mail) {
+    SideNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings'];
+    function SideNavCtrl($scope, $location, mail, settings) {
         activate();
 
         function activate() {
@@ -24,8 +24,9 @@
         };
 
         $scope.openBox = function(mailbox) {
-            $location.search('box', mailbox);
-            $scope.$emit('boxChange');
+            $location.path('/mail/').search({'box': mailbox, 'page': 1});
+            settings.setBox(mailbox);
+            $scope.$broadcast('boxChange', mailbox);
         };
     }
     
