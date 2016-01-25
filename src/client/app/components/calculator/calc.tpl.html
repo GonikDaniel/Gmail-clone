@@ -1,0 +1,93 @@
+<div class="container" style="margin-left: -380px;">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="calc-div">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <form ng-submit="calcCtrl.count()">
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Enter amount to convert" ng-model="calcCtrl.amount">
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="CURRENCY_IN" id="CURRENCY_IN" class="form-control" ng-model="calcCtrl.currencies.IN">
+                                        <option value="USD">Доллар</option>
+                                        <option value="EUR">Евро</option>
+                                        <option value="RUB">Рубль</option>
+                                        <option value="GBP">Фунт стерлингов</option>
+                                        <option value="CHF">Швейцарский франк</option>
+                                        <option value="JPY">Иена</option>
+                                        <option value="CNY">Юань</option>
+                                        <option value="IDR">Рупия</option>
+                                        <option value="AUD">Австралийский доллар</option>
+                                        <option value="THB">Бат</option>
+                                        <option value="TRY">Турецкая лира</option>
+                                        <option value="BGN">Болгарский лев</option>
+                                        <option value="BRL">Бразильский реал</option>
+                                        <option value="CAD">Канадский доллар</option>
+                                        <option value="CZK">Чешская крона</option>
+                                        <option value="DKK">Датская крона</option>
+                                        <option value="HKD">Гонконгский доллар</option>
+                                        <option value="HRK">Хорватская куна</option>
+                                        <option value="HUF">Форинт</option>
+                                        <option value="KRW">Вона</option>
+                                        <option value="MXN">Мексиканское песо</option>
+                                        <option value="NOK">Норвежская крона</option>
+                                        <option value="NZD">Новозеландский доллар</option>
+                                        <option value="PHP">Филиппинское песо</option>
+                                        <option value="PLN">Злотый</option>
+                                        <option value="SEK">Шведская крона</option>
+                                        <option value="SGD">Сингапурский доллар</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-md-6 pad-adjust">
+                                    <input type="text" class="form-control" id="result" placeholder="Here will be the result" disabled ng-model="calcCtrl.result">
+                                </div>
+                                <div class="col-md-6 pad-adjust">
+                                    <select name="CURRENCY_OUT" id="CURRENCY_OUT" class="form-control" ng-model="calcCtrl.currencies.OUT">
+                                        <option value="USD">Доллар</option>
+                                        <option value="EUR">Евро</option>
+                                        <option value="RUB">Рубль</option>
+                                        <option value="GBP">Фунт стерлингов</option>
+                                        <option value="CHF">Швейцарский франк</option>
+                                        <option value="JPY">Иена</option>
+                                        <option value="CNY">Юань</option>
+                                        <option value="IDR">Рупия</option>
+                                        <option value="AUD">Австралийский доллар</option>
+                                        <option value="THB">Бат</option>
+                                        <option value="TRY">Турецкая лира</option>
+                                        <option value="BGN">Болгарский лев</option>
+                                        <option value="BRL">Бразильский реал</option>
+                                        <option value="CAD">Канадский доллар</option>
+                                        <option value="CZK">Чешская крона</option>
+                                        <option value="DKK">Датская крона</option>
+                                        <option value="HKD">Гонконгский доллар</option>
+                                        <option value="HRK">Хорватская куна</option>
+                                        <option value="HUF">Форинт</option>
+                                        <option value="KRW">Вона</option>
+                                        <option value="MXN">Мексиканское песо</option>
+                                        <option value="NOK">Норвежская крона</option>
+                                        <option value="NZD">Новозеландский доллар</option>
+                                        <option value="PHP">Филиппинское песо</option>
+                                        <option value="PLN">Злотый</option>
+                                        <option value="SEK">Шведская крона</option>
+                                        <option value="SGD">Сингапурский доллар</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-md-12 col-sm-12 col-xs-12 pad-adjust">
+                                    <button type="submit" class="btn btn-warning btn-block">COUNT</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

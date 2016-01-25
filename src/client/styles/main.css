@@ -28,8 +28,10 @@ hr { margin-top: 5px;margin-bottom: 10px; }
     min-height: 200px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+/*============================================
+=            Sticky footer styles            =
+============================================*/
+
 html {
     position: relative;
     min-height: 100%;
@@ -51,3 +53,39 @@ body {
     padding: 20px;
     text-align: center;
 }
+
+/*=====  End of Sticky footer styles  ======*/
+
+
+
+
+/*===================================
+=            Calc styles            =
+===================================*/
+
+.calc-div {
+    width: 450px;
+}
+
+.calc-div span {
+    padding-top:10px;
+}
+
+
+.calc-div .small-font {
+    font-size:9px;
+}
+
+.calc-div .pad-adjust {
+    padding-top:10px;
+}
+
+.calc-popup {
+    width: 540px;
+}
+
+.ngdialog.ngdialog-theme-default .ngdialog-content {
+    width: 540px !important;
+}
+
+/*=====  End of Calc styles  ======*/

@@ -49,6 +49,12 @@
                 // reloadOnSearch: false
             })
 
+            .when('/calc', {
+                templateUrl: 'app/components/calculator/calc.tpl.html',
+                controller: 'CalcController',
+                controllerAs: 'calcCtrl',
+            })
+
             .otherwise({redirectTo: '/'});
             // if(window.history && window.history.pushState){
             //     $locationProvider.html5Mode(true);

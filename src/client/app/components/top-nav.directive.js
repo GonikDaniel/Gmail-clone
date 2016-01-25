@@ -14,8 +14,8 @@
         };
     }
 
-    TopNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings'];
-    function TopNavCtrl($scope, $location, mail, settings) {
+    TopNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings', 'ngDialog'];
+    function TopNavCtrl($scope, $location, mail, settings, ngDialog) {
         var vm = this;
 
         var mailsByPage = settings.getMailsByPage();
@@ -61,6 +61,15 @@
 
         vm.select = function(typeOfSelected) {
             $scope.$broadcast('select', typeOfSelected);
+        };
+
+        vm.showCalc = function() {
+            ngDialog.open({
+                template: 'app/components/calculator/calc.tpl.html',
+                // className: 'calc-popup',
+                controller: 'CalcController',
+                controllerAs: 'calcCtrl'
+            });  
         };
     }
 })();

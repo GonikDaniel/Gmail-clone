@@ -6,6 +6,8 @@
         'ngCookies',
         'restangular',
         // 'ngAnimate',
+        'ngDialog',
+        'calculator'
     ]);
 
 })();
