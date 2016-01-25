@@ -22,7 +22,7 @@
         ////////////////
 
         function getRates(base) {
-            return $http.get('http://api.fixer.io/latest?base=' + base).then(function(response) {
+            return $http.get('https://api.fixer.io/latest?base=' + base).then(function(response) {
                 return response.data;
             }, function(error) {
                 console.log(error);
