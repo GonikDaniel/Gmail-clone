@@ -13,8 +13,8 @@
         };
     }
 
-    TabNavCtrl.$inject = ['$scope', '$location'];
-    function TabNavCtrl($scope, $location) {
+    TabNavCtrl.$inject = ['$scope', '$location', '$state'];
+    function TabNavCtrl($scope, $location, $state) {
         var vm = this;
 
         vm.isTab = function(name) {
@@ -22,7 +22,10 @@
         };
 
         vm.changeTab = function(tab) {
-            $location.search('tab', tab);
+            // $location.search('tab', tab);
+            // $state.go('mail?box=:box&n=:page', {tab: tab});
+            $state.go('mail', { tab : tab });
+            console.log($location.absUrl());
         };
     }
 })();

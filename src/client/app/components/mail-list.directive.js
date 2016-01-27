@@ -19,12 +19,7 @@
     
     MailListCtrl.$inject = ['$scope', '$location', '$compile'];
     function MailListCtrl($scope, $location, $compile) {
-        var vm = this;
-
-        vm.readMail = function(id) {
-            $location.search('mail', id);
-        };
-        
+        var vm = this;        
     }
 
     function link(scope, elem, attr, ctrl) {

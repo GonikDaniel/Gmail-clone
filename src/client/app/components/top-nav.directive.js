@@ -14,8 +14,8 @@
         };
     }
 
-    TopNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings', 'ngDialog'];
-    function TopNavCtrl($scope, $location, mail, settings, ngDialog) {
+    TopNavCtrl.$inject = ['$scope', 'mail', 'settings', 'ngDialog'];
+    function TopNavCtrl($scope, mail, settings, ngDialog) {
         var vm = this;
 
         var mailsByPage = settings.getMailsByPage();
@@ -27,6 +27,8 @@
         /////////////
 
         function updateTotal() {
+            settings.setPage(1);
+            vm.page = settings.getPage();
             vm.box = settings.getBox();
             vm.totals = mail.getTotals();
         }
@@ -38,6 +40,8 @@
 
         $scope.$on('boxChange', function(){
             updateTotal();
+            paginationCalc();
+            console.log(vm.page, vm.box);
         });
 
         $scope.$watch('page', function(newValue, oldValue, scope) {
@@ -56,6 +60,7 @@
                 vm.page++;
                 settings.setPage(vm.page);
             }
+            paginationCalc();
             $scope.$emit('pageChange');
         };
 
@@ -66,7 +71,6 @@
         vm.showCalc = function() {
             ngDialog.open({
                 template: 'app/components/calculator/calc.tpl.html',
-                // className: 'calc-popup',
                 controller: 'CalcController',
                 controllerAs: 'calcCtrl'
             });  

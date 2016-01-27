@@ -3,9 +3,9 @@
 
     angular.module('dgGmail', [
         'ngRoute',
+        'ui.router',
         'ngCookies',
         'restangular',
-        // 'ngAnimate',
         'ngDialog',
         'calculator'
     ]);

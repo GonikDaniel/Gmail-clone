@@ -13,21 +13,20 @@
     });
 
 
-    config.$inject = ['$routeProvider', '$locationProvider', 'RestangularProvider', 'ENV'];
-    function config($routeProvider, $locationProvider, RestangularProvider, ENV) {
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', 'ENV'];
+    function config($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, ENV) {
         if( ENV === 'production' ) {
             RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
         } else {
-            // RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
-            RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
+            RestangularProvider.setBaseUrl('http://localhost:6660/'); // express on locale machine
+            // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
         }
 
-        $routeProvider
-            .when('/', {
-                redirectTo: '/mail'
-            })
+        $urlRouterProvider.otherwise("/mail/Inbox/1");
 
-            .when('/mail', {
+        $stateProvider
+            .state('mail', {
+                url:'/mail/:box/:page',
                 templateUrl: 'app/mail/index.tpl.html',
                 controller: 'MailIndexController',
                 controllerAs: 'indexCtrl',
@@ -35,30 +34,24 @@
                     mailPrepService: mailPrepService
                 }
             })
-
-            .when('/mail/new', {
-                templateUrl: 'app/mail/create.tpl.html',
-                controller: 'MailCreateController',
-                controllerAs: 'createCtrl',
-            })
-
-            .when('/mail/:mailId', {
+            .state('read', {
+                url:'/mail/{mailId:[0-9]{1,}}',
                 templateUrl: 'app/mail/read.tpl.html',
                 controller: 'MailReadController',
-                controllerAs: 'readCtrl',
-                // reloadOnSearch: false
+                controllerAs: 'readCtrl'
             })
-
-            .when('/calc', {
+            .state('mail.new', {
+                url:'/mail',
+                templateUrl: 'app/mail/index.tpl.html',
+                controller: 'MailIndexController',
+                controllerAs: 'indexCtrl',
+            })
+            .state('calc', {
+                url: '/calc',
                 templateUrl: 'app/components/calculator/calc.tpl.html',
                 controller: 'CalcController',
                 controllerAs: 'calcCtrl',
-            })
-
-            .otherwise({redirectTo: '/'});
-            // if(window.history && window.history.pushState){
-            //     $locationProvider.html5Mode(true);
-            // }
+            });
     }
 
     mailPrepService.$inject = ['mail'];

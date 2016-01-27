@@ -2,6 +2,7 @@
 .lock-wscript
 .idea
 .tmp/
+*.backup.js
 
 # Compiled source #
 ###################

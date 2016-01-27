@@ -3,8 +3,8 @@
 
     angular.module('dgGmail').controller('MailIndexController', MailIndexController);
     
-    MailIndexController.$inject = ['$scope', '$location', '$timeout', 'mail', 'settings'];
-    function MailIndexController($scope, $location, $timeout, mail, settings) {
+    MailIndexController.$inject = ['$scope', '$timeout', 'mail', 'settings'];
+    function MailIndexController($scope, $timeout, mail, settings) {
         var vm = this;
 
         var box = settings.getBox();

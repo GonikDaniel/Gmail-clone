@@ -3,10 +3,10 @@
 
     angular.module('dgGmail').controller('MailReadController', MailReadController);
 
-    MailReadController.$inject = ['$scope', '$routeParams', 'mail', 'settings'];
-    function MailReadController($scope, $routeParams, mail, settings) {
+    MailReadController.$inject = ['$scope', '$stateParams', 'mail', 'settings'];
+    function MailReadController($scope, $stateParams, mail, settings) {
         var vm = this;
-        var mailId = $routeParams.mailId;
+        var mailId = $stateParams.mailId;
 
         mail.getById(mailId).then(function(selectedMail) {
             vm.mail = selectedMail;

@@ -3,8 +3,8 @@
 
     angular.module('dgGmail').factory('settings', settings);
 
-    settings.$inject = ['$location', '$timeout'];
-    function settings($location, $timeout) {
+    settings.$inject = ['$location', '$timeout', '$state', '$stateParams'];
+    function settings($location, $timeout, $state, $stateParams) {
         // default mailbox is 'inbox' and page - 1
         var box = 'Inbox';
         var page = 1;
@@ -24,14 +24,16 @@
         //////////////
 
         function activate() {
-            if (!$location.search().box) {
-                $location.search({box: 'Inbox', page: 1});
+            if (!$stateParams.box) {
+                $stateParams.box = 'Inbox';
+                $stateParams.page = 1;
+                $state.go('mail', $stateParams);
             } else {
-                if (!$location.search().page) {
-                    $location.search('page', 1);
+                if (!$stateParams.page) {
+                    $state.go('mail', { page : 1 });
                 }
-                box = $location.search().box;
-                page = $location.search().page;
+                box = $stateParams.box;
+                page = $stateParams.page;
             }
         }
 
@@ -49,7 +51,7 @@
 
         function setPage(pageName) {
             page = pageName;
-            $location.search('page', page);
+            $state.go('mail', { box: box, page : page });
         }
 
         function getMailsByPage() {

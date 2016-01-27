@@ -13,8 +13,8 @@
         };
     }
 
-    SideNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings'];
-    function SideNavCtrl($scope, $location, mail, settings) {
+    SideNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings', '$stateParams', '$state'];
+    function SideNavCtrl($scope, $location, mail, settings, $stateParams, $state) {
         var vm = this;
         activate();
 
@@ -23,11 +23,12 @@
         }
 
         vm.isBoxActive = function(box) {
-            return ~(box.indexOf($location.search().box));
+            return ~(box.indexOf($stateParams.box));
         };
 
         vm.openBox = function(mailbox) {
-            $location.path('/mail/').search({'box': mailbox, 'page': 1});
+            // $location.path('/mail/').search({'box': mailbox, 'page': 1});
+            $state.go('mail', {box: mailbox, page: 1});
             settings.setBox(mailbox);
             $scope.$broadcast('boxChange', mailbox);
         };
