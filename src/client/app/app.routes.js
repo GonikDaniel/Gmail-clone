@@ -10,10 +10,11 @@
 
     .run(run);
 
-    run.$inject = ['$rootScope', '$stateParams', '$urlMatcherFactory'];
-    function run($rootScope, $stateParams, $urlMatcherFactory) {
+    run.$inject = ['$rootScope', '$state', '$stateParams', '$urlMatcherFactory'];
+    function run($rootScope, $state, $stateParams, $urlMatcherFactory) {
         $rootScope.title = 'Gmail clone';
         $rootScope.$stateParams = $stateParams;
+        $rootScope.$state = $state;
         $urlMatcherFactory.caseInsensitive(true);
     }
 
