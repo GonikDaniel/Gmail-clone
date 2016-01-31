@@ -2,6 +2,7 @@
     'use strict';
 
     angular.module('dgGmail', [
+        'dgGmail.contacts',
         'ngRoute',
         'ui.router',
         'ngCookies',

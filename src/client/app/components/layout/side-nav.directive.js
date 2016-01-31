@@ -6,7 +6,7 @@
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: 'app/components/side-nav.tpl.html',
+            templateUrl: 'app/components/layout/side-nav.tpl.html',
             controller: SideNavCtrl,
             controllerAs: 'sideNavCtrl',
             bindToController: true

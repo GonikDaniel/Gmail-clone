@@ -10,7 +10,7 @@
             scope: {
                 mail: "="
             },
-            templateUrl: 'app/components/mail-list.tpl.html',
+            templateUrl: 'app/components/mail/mail-list.tpl.html',
             controller: MailListCtrl,
             controllerAs: 'mailListCtrl',
             link: link

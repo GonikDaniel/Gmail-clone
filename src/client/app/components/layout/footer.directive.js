@@ -8,7 +8,7 @@
             replace: true,
             restrict: 'E',
             scope: {},
-            templateUrl: 'app/components/footer.tpl.html',
+            templateUrl: 'app/components/layout/footer.tpl.html',
             controller: FooterCtrl
         };
     }

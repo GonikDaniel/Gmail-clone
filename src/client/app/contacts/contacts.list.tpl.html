@@ -1,0 +1,23 @@
+<ul class="list-group" id="contact-list">
+    <li class="list-group-item" 
+        ng-repeat="contact in contactsCtrl.contacts | limitTo:50 | filter:contactsCtrl.search" 
+        data-contact-id="{{ contact.id }}">
+        <a ng-click="contactsCtrl.showDetails(contact.id)">
+            <div class="col-xs-12 col-sm-1">
+                <img ng-src="{{ contact.avatar }}" alt="Scott Stevens" class="img-responsive img-circle contact-img" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+                <span class="name">{{ contact.name }}</span>
+                <span class="pull-right">
+                    <span class="glyphicon glyphicon-map-marker text-muted c-info" title="{{ contact.address }}"></span>
+                    <span class="visible-xs"> <span class="text-muted">{{ contact.address }}</span><br/></span>
+                    <span class="glyphicon glyphicon-earphone text-muted c-info" title="{{ contact.phone }}"></span>
+                    <span class="visible-xs"> <span class="text-muted">{{ contact.phone }}</span><br/></span>
+                    <span class="fa fa-comments text-muted c-info" title="{{ contact.email }}"></span>
+                    <span class="visible-xs"> <span class="text-muted">{{ contact.email }}</span><br/></span>
+                </span>
+            </div>
+            <div class="clearfix"></div>
+        </a>
+    </li>
+</ul>

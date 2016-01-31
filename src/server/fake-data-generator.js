@@ -7,11 +7,12 @@ var faker = require('faker');
 // // use certain locale
 // faker.locale = "ru";
 var nLoop = R.range(0);
-var id = 1;
+var mailId = 1;
+var contactId = 1;
 var boxes = ['Inbox', 'Starred', 'Important', 'Sent', 'Drafts'];
 function aMail() {
   return {
-    id: id++,
+    id: mailId++,
     sender: faker.name.findName(),
     title: faker.lorem.sentence(),
     content: faker.lorem.paragraph(),
@@ -19,11 +20,26 @@ function aMail() {
     box: boxes[Math.floor(Math.random() * boxes.length)],
     date: faker.date.past(),
     read: Math.random() < 0.5, // random boolean
-    important: Math.random() < 0.5
+    important: Math.random() < 0.5,
+    withAttachment: Math.random() < 0.3
   };
 }
+
+function aContact() {
+  return {
+    id: contactId++,
+    name: faker.name.findName(),
+    avatar: faker.image.avatar(),
+    address: faker.address.streetAddress(),
+    email: faker.internet.email(),
+    date: faker.date.past(),
+    phone: faker.phone.phoneNumberFormat()
+  };
+}
+
 var data = {
-    mail: nLoop(1000).map(aMail)
+    mail: nLoop(1000).map(aMail),
+    contact: nLoop(100).map(aContact)
 };
 // other usecase
 // var data = {

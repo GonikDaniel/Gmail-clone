@@ -1,0 +1,42 @@
+<div class="container contacts">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading c-list">
+                    <span class="title">Contacts</span>
+                    <ul class="pull-right c-controls">
+                        <li>
+                            <a href="" title="Add Contact">
+                                <i class="glyphicon glyphicon-plus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="hide-search" title="Toggle Search" 
+                               ng-click="contactsCtrl.toggleSearch()"
+                               ng-class="contactsCtrl.showSearch ? 'hide-search' : 'show-search'">
+                                <i class="fa fa-ellipsis-v"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="row" style="display: none;">
+                    <div class="col-xs-12">
+                        <div class="input-group c-search">
+                            <input type="text" class="form-control" id="contact-list-search" ng-model="contactsCtrl.search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <span class="glyphicon glyphicon-search text-muted"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                    
+                <ui-view></ui-view>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,8 +23,8 @@ module.exports = function(app) {
   });
 
   app.get('/mail/:id', function(req, res) {
-    var noteId = parseInt(req.param('id'), 10);
-    res.json(Mail.get(noteId) || {});
+    var mailId = parseInt(req.param('id'), 10);
+    res.json(Mail.get(mailId) || {});
   });
 
   app.delete('/mail/:id', function(req, res) {

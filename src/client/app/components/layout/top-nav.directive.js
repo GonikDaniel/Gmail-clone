@@ -7,7 +7,7 @@
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: 'app/components/top-nav.tpl.html',
+            templateUrl: 'app/components/layout/top-nav.tpl.html',
             controller: TopNavCtrl,
             controllerAs: 'topNavCtrl',
             bindToController: true
@@ -41,7 +41,6 @@
         $scope.$on('boxChange', function(){
             updateTotal();
             paginationCalc();
-            console.log(vm.page, vm.box);
         });
 
         $scope.$watch('page', function(newValue, oldValue, scope) {

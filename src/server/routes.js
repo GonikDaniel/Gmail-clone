@@ -14,7 +14,7 @@ app.get('/', function(req, res){
 
 // Load routes
 require('./routes/mail')(app); // mail routes
-// require('./routes/user')(app); //user routes
+require('./routes/contact')(app); //user routes
 // require('./routes/category')(app); // category routes
 
 module.exports = app;

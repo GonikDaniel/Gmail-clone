@@ -6,7 +6,7 @@
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: 'app/components/tab-nav.tpl.html',
+            templateUrl: 'app/components/layout/tab-nav.tpl.html',
             controller: TabNavCtrl,
             controllerAs: 'tabNavCtrl',
             bindToController: true
