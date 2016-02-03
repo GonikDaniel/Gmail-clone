@@ -3,8 +3,8 @@
 
     angular.module('dgGmail')
 
-    // .constant('ENV', 'production')
-    .constant('ENV', 'dev')
+    .constant('ENV', 'production')
+    // .constant('ENV', 'dev')
 
     .config(config)    
 
