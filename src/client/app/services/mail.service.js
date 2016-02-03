@@ -12,6 +12,7 @@
             getAll: getAllMails,
             getAllInBox: getAllInBox,
             getById: getMailById,
+            setCache: setMailCache,
             getTotals: getTotals,
             updateTotals: updateTotals
         };
@@ -21,17 +22,22 @@
         ///////////////////
 
         function getAllMails() {
-            for (var i = 0; i < boxes.length; i++) {
-                getMailsInBox(boxes[i]);
-            }
+            return Restangular.all('mail').getList();
+            // for (var i = 0; i < boxes.length; i++) {
+            //     getMailsInBox(boxes[i]);
+            // }
 
-            function getMailsInBox(box) {
-                Restangular.all('mail?box_like=' + box).getList().then(function(mails) {
-                    mailStorage[box] = mails;
-                }, function(error) {
-                    console.log(error);
-                });
-            }
+            // function getMailsInBox(box) {
+            //     Restangular.all('mail?box_like=' + box).getList().then(function(mails) {
+            //         mailStorage[box] = mails;
+            //     }, function(error) {
+            //         console.log(error);
+            //     });
+            // }
+        }
+
+        function setMailCache(mails) {
+            mailStorage = mails;
         }
 
         function getAllInBox(box) {

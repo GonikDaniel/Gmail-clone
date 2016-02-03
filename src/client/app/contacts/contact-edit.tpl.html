@@ -1,0 +1,65 @@
+<div class="row user-infos contact-detail">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Edit contact</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class=" col-md-12 col-lg-12 hidden-xs hidden-sm">
+                            <strong>{{ contactsCtrl.person.name }}</strong>
+                            <br>
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Circles:</td>
+                                        <td>
+                                            <select class="form-control" name="circles" id="circles" 
+                                                   ng-model="contactsCtrl.person.circles">
+                                                <option value="1">Friends</option>
+                                                <option value="2">Job</option>
+                                                <option value="3">School</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Name:</td>
+                                        <td>
+                                            <input class="form-control" type="text" 
+                                                   ng-model="contactsCtrl.person.name">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>
+                                            <input class="form-control" type="email" 
+                                                   ng-model="contactsCtrl.person.email">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>
+                                            <input class="form-control" type="text" 
+                                                   ng-model="contactsCtrl.person.phone">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button class="btn btn-success" type="submit"
+                                                    ng-click="contactsCtrl.saveContact() && closeThisDialog()">
+                                              <i class="fa fa-floppy-o"></i> Save
+                                            </button>
+                                            <button class="btn btn-success" type="submit"
+                                                    ng-click="closeThisDialog()">
+                                              <i class="fa fa-ban"></i> Cancel
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

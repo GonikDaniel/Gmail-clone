@@ -15,12 +15,11 @@
         /////////////////
 
         function activate(box) {
-            $timeout(function() {
-                vm.mails = mail.getAllInBox(box);
-                vm.mails.forEach( function(item, index) {
-                    item.selected = false;
-                });
-            }, 300);
+            var tmp = mail.getAllInBox(box);
+            tmp.forEach( function(item, index) {
+                item.selected = false;
+            });
+            vm.mails = tmp;
 
             vm.fromMail = vm.page * vm.mailsByPage;
             // mail.getAll().then(function(mails) {
@@ -30,12 +29,12 @@
             // });  
         }
 
-        $scope.$on('boxChange', function(e, box){
+        // $scope.$on('boxChange', function(e, box){
 
-            vm.mails = mail.getAllInBox(box);
-            vm.fromMail = vm.page * vm.mailsByPage;
+        //     vm.mails = mail.getAllInBox(box);
+        //     vm.fromMail = vm.page * vm.mailsByPage;
 
-        });
+        // });
 
         $scope.$on('select', function(e, typeOfSelected){
             switch (typeOfSelected) {

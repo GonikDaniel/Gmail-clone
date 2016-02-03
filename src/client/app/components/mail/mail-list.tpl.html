@@ -13,6 +13,7 @@
     <span class="text-muted mail-content-short">- {{ mail.content | limitTo:50 }}</span>
     <span class="badge">{{ mail.date | date:'hh:mm a' }}</span>
     <span class="pull-right">
+        <!-- <span class="glyphicon glyphicon-paperclip" ng-if="mail.withAttachment"></span> -->
         <span class="glyphicon glyphicon-paperclip"></span>
     </span>
 </a>

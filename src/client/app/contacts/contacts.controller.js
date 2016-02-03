@@ -3,10 +3,10 @@
 
     angular.module('dgGmail.contacts').controller('ContactsController', ContactsController);
 
-    ContactsController.$inject = ['contacts', '$state', '$stateParams'];
+    ContactsController.$inject = ['$scope','contacts', '$state', '$stateParams', 'ngDialog'];
 
     /* @ngInject */
-    function ContactsController(contacts, $state, $stateParams) {
+    function ContactsController($scope, contacts, $state, $stateParams, ngDialog) {
         var vm = this;
         vm.title = 'ContactsController';
 
@@ -17,6 +17,7 @@
         function activate() {
             if ($stateParams.id) {
                 contacts.getDetail($stateParams.id).then(function(details) {
+                    !details.id && $state.go('contacts.list');  //if we don't have this contact - redirect
                     vm.person = details;
                 }, function(error) {
                     console.log(error);
@@ -30,6 +31,12 @@
             }
         }
 
+        /**
+         *
+         * Search section
+         *
+         */
+        
         vm.toggleSearch = function() {
             vm.showSearch = !vm.showSearch;
             
@@ -40,6 +47,17 @@
             }
         };
 
+        vm.search = function() {
+            console.log(vm.searchInput);
+        };
+
+
+        /**
+         *
+         * Contact details section
+         *
+         */
+        
         vm.showDetails = function(contactId) {
             contacts.getDetail(contactId).then(function(details) {
                 vm.person = details;
@@ -48,5 +66,50 @@
                 console.log(error);
             });
         };
+
+        vm.sendMessage = function(contactEmail) {
+            
+        };
+
+        /**
+         *
+         * Contact edit/delete section
+         *
+         */
+        
+        vm.editContact = function(contact) {
+            ngDialog.open({
+                template: 'app/contacts/contact-edit.tpl.html',
+                controller: 'ContactsController',
+                controllerAs: 'contactsCtrl'
+            });
+        };
+
+        vm.removeContact = function(contactId) {
+            vm.person.remove().then(function(response) {
+                console.log(response);
+                toastr.success('Контакт был успешно удален', 'Удален', {timeOut: 2000, closeButton: true});
+                $state.go('contacts.list');
+                $state.reload();
+            }, function(error) {
+                console.log(error);
+                toastr.error(response.error, 'Что-то пошло не так', {timeOut: 2000, closeButton: true});
+            });
+        };
+
+        vm.saveContact = function() {
+            vm.person.save().then(function(response) {
+                console.log(response);
+                toastr.success('Контакт был успешно обновлен', 'Обновлен', {timeOut: 2000, closeButton: true});
+                $state.reload();
+            }, function(error) {
+                console.log(error);
+                toastr.error(response.error, 'Что-то пошло не так', {timeOut: 2000, closeButton: true});
+            });
+            return true;
+        };
+
+        
+
     }
 })();

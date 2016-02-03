@@ -3,8 +3,8 @@
 
     angular.module('dgGmail')
 
-    .constant('ENV', 'production')
-    // .constant('ENV', 'dev')
+    // .constant('ENV', 'production')
+    .constant('ENV', 'dev')
 
     .config(config)    
 
@@ -16,6 +16,12 @@
         $rootScope.$stateParams = $stateParams;
         $rootScope.$state = $state;
         $urlMatcherFactory.caseInsensitive(true);
+
+        $rootScope.$on('$stateChangeSuccess',
+            function(event, toState, toParams, fromState, fromParams) {
+                $state.current = toState;
+            }
+        );
     }
 
 
@@ -28,7 +34,7 @@
             // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
         }
         
-        // $urlRouterProvider.otherwise("/mail/Inbox/1");
+        $urlRouterProvider.otherwise("/mail/Inbox/1");
 
         $stateProvider
             .state('mail', {
@@ -61,7 +67,9 @@
             })
                 .state('contacts.list', {
                     url: '/list',
-                    templateUrl: 'app/contacts/contacts.list.tpl.html'
+                    templateUrl: 'app/contacts/contacts.list.tpl.html',
+                    // controller: 'ContactsController',
+                    // controllerAs: 'contactsCtrl'
                 })
                 .state('contacts.detail', {
                     url: '/:id',
@@ -80,7 +88,11 @@
 
     mailPrepService.$inject = ['mail'];
     function mailPrepService(mail) {
-        mail.getAll();
+        mail.getAll().then(function(mails) {
+            mail.setCache(mails[0]);
+        }, function(error) {
+            console.log(error);
+        });
     }
     
 })();

@@ -24,7 +24,9 @@
                 <div class="row" style="display: none;">
                     <div class="col-xs-12">
                         <div class="input-group c-search">
-                            <input type="text" class="form-control" id="contact-list-search" ng-model="contactsCtrl.search">
+                            <input type="text" class="form-control" id="contact-list-search" 
+                                   ng-model="contactsCtrl.searchInput" 
+                                   ng-change="contactsCtrl.search()">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">
                                     <span class="glyphicon glyphicon-search text-muted"></span>

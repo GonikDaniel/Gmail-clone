@@ -9,7 +9,6 @@
         var box = 'Inbox';
         var page = 1;
         var mailsByPage = 20;
-        activate();
 
         var factory = {
             getBox: getBox,
@@ -22,20 +21,6 @@
         return factory;
 
         //////////////
-
-        function activate() {
-            if (!$stateParams.box) {
-                $stateParams.box = 'Inbox';
-                $stateParams.page = 1;
-                $state.go('mail', $stateParams);
-            } else {
-                if (!$stateParams.page) {
-                    $state.go('mail', { page : 1 });
-                }
-                box = $stateParams.box;
-                page = $stateParams.page;
-            }
-        }
 
         function getBox() {
             return box;
@@ -51,7 +36,6 @@
 
         function setPage(pageName) {
             page = pageName;
-            $state.go('mail', { box: box, page : page });
         }
 
         function getMailsByPage() {

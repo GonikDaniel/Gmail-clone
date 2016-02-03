@@ -14,8 +14,8 @@
         };
     }
 
-    TopNavCtrl.$inject = ['$scope', 'mail', 'settings', 'ngDialog'];
-    function TopNavCtrl($scope, mail, settings, ngDialog) {
+    TopNavCtrl.$inject = ['$scope', '$state', 'mail', 'settings', 'ngDialog'];
+    function TopNavCtrl($scope, $state, mail, settings, ngDialog) {
         var vm = this;
 
         var mailsByPage = settings.getMailsByPage();
@@ -27,7 +27,6 @@
         /////////////
 
         function updateTotal() {
-            settings.setPage(1);
             vm.page = settings.getPage();
             vm.box = settings.getBox();
             vm.totals = mail.getTotals();
@@ -39,7 +38,9 @@
         }
 
         $scope.$on('boxChange', function(){
+            settings.setPage(1);
             updateTotal();
+            $state.go('mail', { box: vm.box, page : vm.page });
             paginationCalc();
         });
 
@@ -59,6 +60,7 @@
                 vm.page++;
                 settings.setPage(vm.page);
             }
+            $state.go('mail', { box: vm.box, page : vm.page });
             paginationCalc();
             $scope.$emit('pageChange');
         };

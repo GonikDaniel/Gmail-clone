@@ -39,19 +39,17 @@
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <button class="btn btn-sm btn-primary" type="button"
-                            data-toggle="tooltip"
-                            data-original-title="Send message to user"> <i class="glyphicon glyphicon-envelope"></i>
+                    <button class="btn btn-sm btn-primary" type="button" title="Send message to user"
+                            ng-click="contactsCtrl.sendMessage(contactsCtrl.person.email)"> 
+                        <i class="glyphicon glyphicon-envelope"></i>
                     </button>
                     <span class="pull-right">
-                        <button class="btn btn-sm btn-warning" type="button"
-                                data-toggle="tooltip"
-                                data-original-title="Edit this user">
+                        <button class="btn btn-sm btn-warning" type="button" title="Edit this user"
+                                ng-click="contactsCtrl.editContact(contactsCtrl.person)">
                             <i class="glyphicon glyphicon-edit"></i>
                         </button>
-                        <button class="btn btn-sm btn-danger" type="button"
-                                data-toggle="tooltip"
-                                data-original-title="Remove this user">
+                        <button class="btn btn-sm btn-danger" type="button" title="Remove this user"
+                                ng-click="contactsCtrl.removeContact(contactsCtrl.person.id)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
                     </span>

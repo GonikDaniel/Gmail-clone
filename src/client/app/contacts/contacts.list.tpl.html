@@ -1,13 +1,13 @@
 <ul class="list-group" id="contact-list">
     <li class="list-group-item" 
-        ng-repeat="contact in contactsCtrl.contacts | limitTo:50 | filter:contactsCtrl.search" 
+        ng-repeat="contact in contactsCtrl.contacts | filter:contactsCtrl.searchInput | limitTo:30"
         data-contact-id="{{ contact.id }}">
         <a ng-click="contactsCtrl.showDetails(contact.id)">
             <div class="col-xs-12 col-sm-1">
                 <img ng-src="{{ contact.avatar }}" alt="Scott Stevens" class="img-responsive img-circle contact-img" />
             </div>
-            <div class="col-xs-12 col-sm-9">
-                <span class="name">{{ contact.name }}</span>
+            <div class="col-xs-12 col-sm-11">
+                <span class="name">{{ contact.name }} <small class="text-muted"><{{ contact.email }}></small></span>
                 <span class="pull-right">
                     <span class="glyphicon glyphicon-map-marker text-muted c-info" title="{{ contact.address }}"></span>
                     <span class="visible-xs"> <span class="text-muted">{{ contact.address }}</span><br/></span>
@@ -21,3 +21,16 @@
         </a>
     </li>
 </ul>
+
+
+
+<!-- TODO - разобраться как правильно применить здесь фильтр по поиску
+$scope.ingredient = "";
+
+$scope.filterByIngredient = function () {
+    $scope.filteredRecipes = $scope.ingredient.length ? $filter('filter')($scope.recipes, function (r) {
+        return r.ingredients.indexOf($scope.ingredient) > -1;
+    }) : $scope.recipes;
+};
+
+<input type="text" ng-model="ingredient" ng-change="filterByIngredient()" /> -->
