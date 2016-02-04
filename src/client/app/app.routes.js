@@ -3,8 +3,8 @@
 
     angular.module('dgGmail')
 
-    .constant('ENV', 'production')
-    // .constant('ENV', 'dev')
+    // .constant('ENV', 'production')
+    .constant('ENV', 'dev')
 
     .config(config)    
 
@@ -88,11 +88,13 @@
 
     mailPrepService.$inject = ['mail'];
     function mailPrepService(mail) {
-        mail.getAll().then(function(mails) {
-            mail.setCache(mails[0]);
-        }, function(error) {
-            console.log(error);
-        });
+        if (!mail.getAllInBox('Inbox')) {
+            return mail.getAll().then(function(mails) {
+                mail.setCache(mails[0]);
+            }, function(error) {
+                console.log(error);
+            });
+        }
     }
     
 })();

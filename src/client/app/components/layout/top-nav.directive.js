@@ -14,8 +14,8 @@
         };
     }
 
-    TopNavCtrl.$inject = ['$scope', '$state', 'mail', 'settings', 'ngDialog'];
-    function TopNavCtrl($scope, $state, mail, settings, ngDialog) {
+    TopNavCtrl.$inject = ['$scope', '$state', 'mail', 'settings', 'ngDialog', '$timeout'];
+    function TopNavCtrl($scope, $state, mail, settings, ngDialog, $timeout) {
         var vm = this;
 
         var mailsByPage = settings.getMailsByPage();
@@ -75,6 +75,16 @@
                 controller: 'CalcController',
                 controllerAs: 'calcCtrl'
             });  
+        };
+
+        vm.refresh = function() {
+            mail.clearCache();
+            var box = settings.getBox();
+            $scope.$broadcast('boxChange', box);
+            $timeout(function() {
+                $state.go('mail');
+                $state.reload();
+            }, 100);
         };
     }
 })();
