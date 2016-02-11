@@ -5,11 +5,10 @@ module.exports = function(app) {
   app.get('/users', function(req, res) {
     var token = req.headers['x-token'] || '';
     res.json(User.getUserByToken(token));
+    if (!token) {res.send('sdf');};
   });
 
   app.post('/users', function(req, res) {
-    // Add a delay here to simulate the delay of a live server
-    // So things like button isSubmitting states can be demonstrated
     var credentials = req.body;
     var token = '';
     

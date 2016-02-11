@@ -47,11 +47,14 @@
         //логин по данным введенным в форму
         vm.login = function(credentials) {
             console.log(credentials);
+            toastr.success('Авторизация', 'Подождите...', {timeOut: 3000, closeButton: true});
             AuthService.loginByCredentials(credentials).then(function (user) {
-              console.log(user);
-              $state.go('app.mail', {box: 'Inbox', page: 1});
+                $('.toast').hide();
+                console.log(user);
+                $state.go('app.mail', {box: 'Inbox', page: 1});
             }).catch(function () {
-              console.log('auth error');
+                $('.loginForm input').css('border', '1px solid red');
+                console.log('auth error');
             });
 
             // $cookieStore.put('admin', true);

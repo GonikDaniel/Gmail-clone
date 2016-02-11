@@ -3,9 +3,9 @@
         <div class="container">
             <h1>Welcome</h1>
             
-            <form class="form" ng-submit="gmailLoginCtrl.login(gmailLoginCtrl.credentials)" novalidate>
-                <input type="text" placeholder="Username" ng-model="gmailLoginCtrl.credentials.login">
-                <input type="password" placeholder="Password" ng-model="gmailLoginCtrl.credentials.password">
+            <form class="form" name="loginForm" ng-submit="gmailLoginCtrl.login(gmailLoginCtrl.credentials)" novalidate>
+                <input type="text" class="login" placeholder="Username" ng-model="gmailLoginCtrl.credentials.login">
+                <input type="password" class="password" placeholder="Password" ng-model="gmailLoginCtrl.credentials.password">
                 <button type="submit" id="login-button" ng-click="">Login</button>
             </form>
         </div>

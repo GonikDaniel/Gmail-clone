@@ -69,6 +69,7 @@
                 $sessionStorage.user = user;
                 return user[0].email;
             }).catch(function(error) {
+                toastr.error(error, 'Что-то пошло не так', {timeOut: 3000, closeButton: true});
                 console.log(error);
             });
         };
@@ -95,6 +96,8 @@
          function responseCheck(response) {
             if(response.status === 401) {
                 $injector.get('$state').go('login');
+            } else if(response.status === 500) {
+                alert('ohhh')
             }
             return $q.reject(response);
         }
