@@ -8,10 +8,11 @@
     "url": "https://github.com/GonikDaniel/Gmail-clone.git"
   },
   "dependencies": {
-    "bower": "1.7.1",
     "body-parser": "^1.8.2",
+    "bower": "1.7.1",
     "compression": "^1.1.0",
     "cors": "^2.2.0",
+    "crypto": "0.0.3",
     "express": "^4.9.3",
     "lodash": "3.x",
     "method-override": "^1.0.0",

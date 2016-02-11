@@ -24,7 +24,7 @@
         vm.changeTab = function(tab) {
             // $location.search('tab', tab);
             // $state.go('mail?box=:box&n=:page', {tab: tab});
-            $state.go('mail', { tab : tab });
+            $state.go('app.mail', { tab : tab });
             console.log($location.absUrl());
         };
     }

@@ -14,8 +14,8 @@
         };
     }
 
-    TopNavCtrl.$inject = ['$scope', '$state', 'mail', 'settings', 'ngDialog', '$timeout'];
-    function TopNavCtrl($scope, $state, mail, settings, ngDialog, $timeout) {
+    TopNavCtrl.$inject = ['$scope', '$state', 'mail', 'settings', 'ngDialog', '$timeout', 'AuthService'];
+    function TopNavCtrl($scope, $state, mail, settings, ngDialog, $timeout, AuthService) {
         var vm = this;
 
         var mailsByPage = settings.getMailsByPage();
@@ -26,21 +26,10 @@
 
         /////////////
 
-        function updateTotal() {
-            vm.page = settings.getPage();
-            vm.box = settings.getBox();
-            vm.totals = mail.getTotals();
-        }
-
-        function paginationCalc() {
-            vm.firstMail = (vm.page - 1) * mailsByPage + 1;
-            vm.lastMail  = mailsByPage * vm.page;
-        }
-
         $scope.$on('boxChange', function(){
             settings.setPage(1);
             updateTotal();
-            $state.go('mail', { box: vm.box, page : vm.page });
+            $state.go('app.mail', { box: vm.box, page : vm.page });
             paginationCalc();
         });
 
@@ -60,7 +49,7 @@
                 vm.page++;
                 settings.setPage(vm.page);
             }
-            $state.go('mail', { box: vm.box, page : vm.page });
+            $state.go('app.mail', { box: vm.box, page : vm.page });
             paginationCalc();
             $scope.$emit('pageChange');
         };
@@ -82,9 +71,25 @@
             var box = settings.getBox();
             $scope.$broadcast('boxChange', box);
             $timeout(function() {
-                $state.go('mail');
+                $state.go('app.mail');
                 $state.reload();
             }, 100);
         };
+
+        vm.logout = function() {
+            AuthService.logout();
+        };
+
+
+        function updateTotal() {
+            vm.page = settings.getPage();
+            vm.box = settings.getBox();
+            vm.totals = mail.getTotals();
+        }
+
+        function paginationCalc() {
+            vm.firstMail = (vm.page - 1) * mailsByPage + 1;
+            vm.lastMail  = mailsByPage * vm.page;
+        }
     }
 })();

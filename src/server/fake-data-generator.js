@@ -37,9 +37,17 @@ function aContact() {
   };
 }
 
+function aUser() {
+    return {
+        email: faker.internet.email(),
+        password: faker.internet.password()
+    };
+}
+
 var data = {
     mail: nLoop(1000).map(aMail),
-    contact: nLoop(100).map(aContact)
+    contact: nLoop(100).map(aContact),
+    user: nLoop(10).map(aUser)
 };
 // other usecase
 // var data = {

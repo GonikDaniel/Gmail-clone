@@ -10,12 +10,21 @@
 
     .run(run);
 
-    run.$inject = ['$rootScope', '$state', '$stateParams', '$urlMatcherFactory'];
-    function run($rootScope, $state, $stateParams, $urlMatcherFactory) {
+    run.$inject = ['$rootScope', '$state', '$stateParams', '$urlMatcherFactory', 'SessionService'];
+    function run($rootScope, $state, $stateParams, $urlMatcherFactory, SessionService) {
         $rootScope.title = 'Gmail clone';
         $rootScope.$stateParams = $stateParams;
         $rootScope.$state = $state;
         $urlMatcherFactory.caseInsensitive(true);
+
+        $rootScope.user = null;
+
+        // При каждом переходе нам необходимо удедиться, что у пользователя есть доступ
+        $rootScope.$on('$stateChangeStart',
+          function (event, toState, toParams, fromState, fromParams) {
+            SessionService.checkAccess(event, toState, toParams, fromState, fromParams);
+          }
+        );
 
         $rootScope.$on('$stateChangeSuccess',
             function(event, toState, toParams, fromState, fromParams) {
@@ -25,8 +34,8 @@
     }
 
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', 'RestangularProvider', 'ENV'];
-    function config($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider, ENV) {
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 'RestangularProvider', 'ENV'];
+    function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, RestangularProvider, ENV) {
         if( ENV === 'production' ) {
             RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
         } else {
@@ -34,10 +43,25 @@
             // RestangularProvider.setBaseUrl('http://localhost:3000/'); // to use with json-server and have no problem with node and express routes
         }
         
-        $urlRouterProvider.otherwise("/mail/Inbox/1");
+        $httpProvider.interceptors.push('AuthInterceptor');
+        $urlRouterProvider.otherwise("/login");
 
         $stateProvider
-            .state('mail', {
+            .state('login', {
+                url:'/login',
+                template: '<gmail-login></gmail-login>',
+                data: {
+                  'noLogin': true
+                }
+            })
+
+            .state('app', {
+                abstract: true,
+                url:'/app',
+                templateUrl: 'app/components/app.tpl.html'
+            })
+
+            .state('app.mail', {
                 url:'/mail/:box/:page',
                 templateUrl: 'app/mail/index.tpl.html',
                 controller: 'MailIndexController',
@@ -58,26 +82,26 @@
                     controller: 'MailIndexController',
                     controllerAs: 'indexCtrl',
                 })
-            .state('contacts', {
+            .state('app.contacts', {
                 abstract: true,
                 url: '/contacts',
                 templateUrl: 'app/contacts/contacts.tpl.html',
                 controller: 'ContactsController',
                 controllerAs: 'contactsCtrl'
             })
-                .state('contacts.list', {
+                .state('app.contacts.list', {
                     url: '/list',
                     templateUrl: 'app/contacts/contacts.list.tpl.html',
                     // controller: 'ContactsController',
                     // controllerAs: 'contactsCtrl'
                 })
-                .state('contacts.detail', {
+                .state('app.contacts.detail', {
                     url: '/:id',
                     templateUrl: 'app/contacts/contacts.detail.tpl.html',
                     controller: 'ContactsController',
                     controllerAs: 'contactsCtrl'
                 })
-            .state('calc', {
+            .state('app.calc', {
                 url: '/calc',
                 templateUrl: 'app/components/calculator/calc.tpl.html',
                 controller: 'CalcController',

@@ -28,7 +28,7 @@
 
         vm.openBox = function(mailbox) {
             // $location.path('/mail/').search({'box': mailbox, 'page': 1});
-            $state.go('mail', {box: mailbox, page: 1});
+            $state.go('app.mail', {box: mailbox, page: 1});
             settings.setBox(mailbox);
             $scope.$broadcast('boxChange', mailbox);
         };
