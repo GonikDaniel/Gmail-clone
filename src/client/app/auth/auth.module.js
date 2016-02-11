@@ -45,9 +45,9 @@
             isAuthorized: false
         };
 
-        Restangular = Restangular.withConfig(function(RestangularConfigurer) {
-            RestangularConfigurer.setBaseUrl('http://localhost:6660');
-        });
+        // Restangular = Restangular.withConfig(function(RestangularConfigurer) {
+        //     RestangularConfigurer.setBaseUrl('http://localhost:6660');
+        // });
 
         this.loginByCredentials = function(credentials) {
             // return Restangular.all('users').getList().then(function(users) {

@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.get('/users', function(req, res) {
     var token = req.headers['x-token'] || '';
     res.json(User.getUserByToken(token));
-    if (!token) {res.send('sdf');};
+    if (!token) { res.status(500).json({ error: 'message' }); }
   });
 
   app.post('/users', function(req, res) {
