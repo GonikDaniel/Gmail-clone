@@ -5,7 +5,6 @@
         'dgGmail.auth',
         'dgGmail.contacts',
         'ngStorage',
-        'ngRoute',
         'ui.router',
         'ngCookies',
         'restangular',

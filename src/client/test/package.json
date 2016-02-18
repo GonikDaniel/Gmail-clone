@@ -1,0 +1,19 @@
+{
+  "name": "gmail-clone-tests",
+  "version": "1.0.0",
+  "description": "Tests for gmail-clone app",
+  "repository": "https://github.com/GonikDaniel/Gmail-clone",
+  "main": "karma.conf.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "author": "Daniel Gonik <gonik.daniel88@gmail.com> (http://igonik.ru/)",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-core": "2.4.1",
+    "karma": "~0.12.0",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-coverage": "0.5.3",
+    "karma-jasmine": "0.2.2"
+  }
+}

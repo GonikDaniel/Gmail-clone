@@ -1,7 +1,10 @@
 (function(){
     'use strict';
 
-    angular.module('dgGmail').directive('title', function($timeout) {
+    angular.module('dgGmail').directive('title', title);
+
+    title.$inject = ['$timeout'];
+    function title($timeout) {
        return function(scope, element, attrs) {
             $timeout(function() {
                 $(element).tooltip();
@@ -11,6 +14,6 @@
                 $(element).tooltip('destroy');
             });
        };
-    });
+    }
     
 })();

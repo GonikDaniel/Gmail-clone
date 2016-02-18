@@ -49,11 +49,10 @@
             console.log(credentials);
             toastr.success('Авторизация', 'Подождите...', {timeOut: 3000, closeButton: true});
             AuthService.loginByCredentials(credentials).then(function (user) {
-                $('.toast').hide();
+                toastr.clear();
                 console.log(user);
                 $state.go('app.mail', {box: 'Inbox', page: 1});
             }).catch(function () {
-                $('.loginForm input').css('border', '1px solid red');
                 console.log('auth error');
             });
 

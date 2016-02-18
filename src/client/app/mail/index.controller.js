@@ -3,8 +3,8 @@
 
     angular.module('dgGmail').controller('MailIndexController', MailIndexController);
     
-    MailIndexController.$inject = ['$scope', '$timeout', 'mail', 'settings'];
-    function MailIndexController($scope, $timeout, mail, settings) {
+    MailIndexController.$inject = ['$scope', 'mail', 'settings'];
+    function MailIndexController($scope, mail, settings) {
         var vm = this;
 
         var box = settings.getBox();
@@ -15,7 +15,7 @@
         /////////////////
 
         function activate(box) {
-            vm.mails = mail.getAllInBox(box);
+            vm.mails = mail.getAllInBox(box) || [];
             vm.mails.forEach( function(item, index) {
                 item.selected = false;
             });
@@ -24,9 +24,7 @@
         }
 
         $scope.$on('boxChange', function(e, box){
-            vm.mails = mail.getAllInBox(box);
-            vm.fromMail = vm.page * vm.mailsByPage;
-
+            activate(box);
         });
 
         $scope.$on('select', function(e, typeOfSelected){

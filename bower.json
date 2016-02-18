@@ -11,6 +11,7 @@
   ],
   "dependencies": {
     "angular": "~1.4.x",
+    "angular-mocks": "~1.4.x",
     "angular-route": "~1.4.x",
     "angular-animate": "~1.4.x",
     "toastr": "~2.0.1",
@@ -24,7 +25,11 @@
     "underscore": "~1.8.3",
     "ng-dialog": "~0.5.6",
     "angular-ui-router": "~0.2.17",
-    "ngstorage": "~0.3.10"
+    "ngstorage": "~0.3.10",
+    "jquery-ui": "~1.11.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "resolutions": {
+    "angular": "~1.4.x"
+  }
 }
