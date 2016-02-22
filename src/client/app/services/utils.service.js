@@ -6,7 +6,8 @@
     function utils() {
         var factory = {
             sanitizeRestangularOne: sanitizeRestangularOne,
-            sanitizeRestangularAll: sanitizeRestangularAll
+            sanitizeRestangularAll: sanitizeRestangularAll,
+            resolvePromise: resolvePromise
         };
         return factory;
 
@@ -19,7 +20,7 @@
                 "customPUT", "customDELETE", "customGETLIST", "$getList", "$resolved", "restangularCollection", "one", "all", "doGET", "doPOST",
                 "doPUT", "doDELETE", "doGETLIST", "addRestangularMethod", "getRestangularUrl", "restangularEtag", "reqParams",
                 "getRequestedUrl", "clone", "withHttpConfig", "plain", "restangularized", "several", "oneUrl", "allUrl", "fromServer",
-                "getParentList", "save");
+                "getParentList", "save", "singleOne");
         }
 
         function sanitizeRestangularAll(items) {
@@ -27,6 +28,17 @@
                 return sanitizeRestangularOne(item);
             });
             return all;
+        }
+
+        function resolvePromise(promise, q, scope){
+            var defer = q.defer();
+            var unproxiedPromise;
+            promise.then(function(value){
+                unproxiedPromise = value;
+            });
+            defer.resolve();
+            scope.$apply();
+            return unproxiedPromise;
         }
 
     }

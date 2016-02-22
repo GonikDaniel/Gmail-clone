@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1456151299179" stop="1456151299225">
+	<title>MailIndexController</title>
+	<test-cases start="1456151299179" stop="1456151299223" status="passed">
+		<title>should check settings.service calls</title>
+	</test-cases>
+	<test-cases start="1456151299216" stop="1456151299224" status="passed">
+		<title>should create &quot;mails&quot; model with 2 mails fetched from xhr</title>
+	</test-cases>
+	<test-cases start="1456151299218" stop="1456151299224" status="passed">
+		<title>should check box changes</title>
+	</test-cases>
+	<test-cases start="1456151299220" stop="1456151299225" status="passed">
+		<title>should check selection on mails (checkboxes)</title>
+	</test-cases>
+</ns2:test-suite>

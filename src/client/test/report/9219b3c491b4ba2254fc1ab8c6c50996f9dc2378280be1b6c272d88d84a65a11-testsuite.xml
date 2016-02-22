@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1456156589921" stop="1456156590044">
+	<title>TopNav directive</title>
+	<test-cases start="1456156589921" stop="1456156590042" status="passed">
+		<title>should check default settings</title>
+	</test-cases>
+	<test-cases start="1456156590019" stop="1456156590043" status="passed">
+		<title>should check AuthService logout call</title>
+	</test-cases>
+	<test-cases start="1456156590017" stop="1456156590043" status="passed">
+		<title>should update state and settings value on boxChange</title>
+	</test-cases>
+	<test-cases start="1456156590022" stop="1456156590043" status="passed">
+		<title>should check navigation with goToPage method</title>
+	</test-cases>
+	<test-cases start="1456156590023" stop="1456156590044" status="passed">
+		<title>should check ngDialog call</title>
+	</test-cases>
+	<test-cases start="1456156590026" stop="1456156590044" status="passed">
+		<title>should check refresh method</title>
+	</test-cases>
+</ns2:test-suite>

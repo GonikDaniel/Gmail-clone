@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1456151284564" stop="1456151284626">
+	<title>ContactsController</title>
+	<test-cases start="1456151284564" stop="1456151284625" status="passed">
+		<title>should check search toggle and ngDialog open method</title>
+	</test-cases>
+	<test-cases start="1456151284612" stop="1456151284625" status="passed">
+		<title>should create &quot;contacts&quot; model with 2 contacts fetched from xhr</title>
+	</test-cases>
+	<test-cases start="1456151284620" stop="1456151284626" status="passed">
+		<title>with certain stateParams of contactId we should get contact info</title>
+	</test-cases>
+</ns2:test-suite>

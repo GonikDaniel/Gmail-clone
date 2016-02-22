@@ -58,7 +58,10 @@
             .state('app', {
                 abstract: true,
                 url:'/app',
-                templateUrl: 'app/components/app.tpl.html'
+                templateUrl: 'app/components/app.tpl.html',
+                resolve: {
+                    mailPrepService: mailPrepService
+                }
             })
 
             .state('app.mail', {
@@ -66,17 +69,14 @@
                 templateUrl: 'app/mail/index.tpl.html',
                 controller: 'MailIndexController',
                 controllerAs: 'indexCtrl',
-                resolve: {
-                    mailPrepService: mailPrepService
-                }
             })
-                .state('read', {
+                .state('app.read', {
                     url:'/mail/{mailId:[0-9]{1,}}',
                     templateUrl: 'app/mail/read.tpl.html',
                     controller: 'MailReadController',
                     controllerAs: 'readCtrl'
                 })
-                .state('mail.new', {
+                .state('app.mail.new', {
                     url:'/mail/new',
                     templateUrl: 'app/mail/index.tpl.html',
                     controller: 'MailIndexController',

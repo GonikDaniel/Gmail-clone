@@ -34,7 +34,14 @@ module.exports = function(config) {
         './app/**/*.js',
 
         /* Specs (tests) */
-        './test/specs/*.spec.js',
+        // './test/specs/*.spec.js',
+        './test/specs/top-nav.directive.spec.js',
+        './test/specs/tab-nav.directive.spec.js',
+        './test/specs/side-nav.directive.spec.js',
+        './test/specs/settings.service.spec.js',
+        // './test/specs/contacts.controller.spec.js',
+        // './test/specs/mail-index.controllers.spec.js',
+        // './test/specs/mail-read.controllers.spec.js',
         './test/specs.async/*.spec.js'
     ],
 
@@ -60,10 +67,16 @@ module.exports = function(config) {
         dir : './test/coverage/'
     },
 
+
+    //You can change xml files with tests result location
+    allureReport: {
+        reportDir: './test/report'
+    },
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'allure'],
 
 
     // web server port
@@ -94,8 +107,8 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
 
-    // browsers: ['PhantomJS'],
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
+    // browsers: ['Chrome'],
 
 
     // If browser does not capture in given timeout [ms], kill it

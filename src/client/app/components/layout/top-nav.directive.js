@@ -8,18 +8,20 @@
             replace: true,
             restrict: 'E',
             templateUrl: 'app/components/layout/top-nav.tpl.html',
-            controller: TopNavCtrl,
+            controller: 'TopNavCtrl',
             controllerAs: 'topNavCtrl',
+            // scope: {},
             bindToController: true
-        };
+        };  
     }
 
+    angular.module('dgGmail').controller('TopNavCtrl', TopNavCtrl);
     TopNavCtrl.$inject = ['$scope', '$state', 'mail', 'settings', 'ngDialog', '$timeout', 'AuthService'];
     function TopNavCtrl($scope, $state, mail, settings, ngDialog, $timeout, AuthService) {
         var vm = this;
 
         var mailsByPage = settings.getMailsByPage();
-        vm.page = settings.getPage();
+        vm.page = 1;
         
         paginationCalc();
         updateTotal();

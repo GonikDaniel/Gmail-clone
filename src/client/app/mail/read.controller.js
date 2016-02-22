@@ -6,16 +6,16 @@
     MailReadController.$inject = ['$scope', '$stateParams', 'mail', 'settings'];
     function MailReadController($scope, $stateParams, mail, settings) {
         var vm = this;
-        var mailId = $stateParams.mailId;
+        vm.mailId = $stateParams.mailId;
 
-        mail.getById(mailId).then(function(selectedMail) {
+        mail.getById(vm.mailId).then(function(selectedMail) {
             vm.mail = selectedMail;
             selectedMail.read = true;
-            selectedMail.save();    // PUT Restangular - saving "read: true" in our selected mail
+            // selectedMail.save();    // PUT Restangular - saving "read: true" in our selected mail
             
-            var box = settings.getBox();
-            mail.updateTotals(box, 'unread', '-');  // temp.method to test update of data
-            vm.mail.ago = moment(vm.mail.date).fromNow();
+            // var box = settings.getBox();
+            // mail.updateTotals(box, 'unread', '-');  // temp.method to test update of data
+            // vm.mail.ago = moment(vm.mail.date).fromNow();
         }, function(error) {
             console.log(error);
         });

@@ -7,14 +7,16 @@
             replace: true,
             restrict: 'E',
             templateUrl: 'app/components/layout/side-nav.tpl.html',
-            controller: SideNavCtrl,
+            controller: 'SideNavCtrl',
             controllerAs: 'sideNavCtrl',
+            // scope: {},
             bindToController: true
         };
     }
 
-    SideNavCtrl.$inject = ['$scope', '$location', 'mail', 'settings', '$stateParams', '$state'];
-    function SideNavCtrl($scope, $location, mail, settings, $stateParams, $state) {
+    angular.module('dgGmail').controller('SideNavCtrl', SideNavCtrl);
+    SideNavCtrl.$inject = ['$scope', 'mail', 'settings', '$stateParams', '$state'];
+    function SideNavCtrl($scope, mail, settings, $stateParams, $state) {
         var vm = this;
         activate();
 

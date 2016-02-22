@@ -8,7 +8,6 @@
     /* @ngInject */
     function ContactsController($scope, contacts, $state, $stateParams, ngDialog) {
         var vm = this;
-        vm.title = 'ContactsController';
 
         activate();
 
@@ -17,7 +16,9 @@
         function activate() {
             if ($stateParams.id) {
                 contacts.getDetail($stateParams.id).then(function(details) {
-                    !details.id && $state.go('contacts.list');  //if we don't have this contact - redirect
+                    if(!details.id) {
+                        $state.go('app.contacts.list');  //if we don't have this contact - redirect
+                    }
                     vm.person = details;
                 }, function(error) {
                     console.log(error);
@@ -61,14 +62,10 @@
         vm.showDetails = function(contactId) {
             contacts.getDetail(contactId).then(function(details) {
                 vm.person = details;
-                $state.go('contacts.detail', { id: contactId });
+                $state.go('app.contacts.detail', { id: contactId });
             }, function(error) {
                 console.log(error);
             });
-        };
-
-        vm.sendMessage = function(contactEmail) {
-            
         };
 
         /**
@@ -89,7 +86,7 @@
             vm.person.remove().then(function(response) {
                 console.log(response);
                 toastr.success('Контакт был успешно удален', 'Удален', {timeOut: 2000, closeButton: true});
-                $state.go('contacts.list');
+                $state.go('app.contacts.list');
                 $state.reload();
             }, function(error) {
                 console.log(error);

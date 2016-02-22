@@ -52,24 +52,24 @@ gulp.task('clean', function(cb) {
 
 gulp.task('make-config', function() {
     var json = JSON.stringify({
-        "production": {
-            "ENV": {
-                "api": "https://gmail-clone.herokuapp.com/",
-                "development": false
-            }
-        },
-        "development": {
-            "ENV": {
-                "api": "http://localhost:6660/",
-                "development": true
-            }
+        "production": { 
+            "ENV": { 
+                "api": "https://gmail-clone.herokuapp.com/", 
+                "development": false 
+            } 
+        }, 
+        "development": { 
+            "ENV": { 
+                "api": "http://localhost:6660/", 
+                "development": true 
+            } 
         }
     });
 
   return b2v.stream(new Buffer(json), 'app.config.module.js')
     .pipe(gulpNgConfig('app.config', {
         environment: ENV,
-        wrap: '(function(){\n\t\'use strict\';\n\n\t<%= module %>\n})();'
+        wrap: '(function() {\n\t\'use strict\';\n\n\t<%= module %>\n})();'
     }))
     .pipe(gulp.dest(paths.app));
 });
@@ -84,8 +84,8 @@ gulp.task('make-config', function() {
 gulp.task('analyze', function() {
    log('Analyzing source with JSHint, JSCS and Plato');
 
-   var jshint = analyzejshint([].concat(paths.js, paths.specs));
-   var jscs = analyzejscs([].concat(paths.js));
+   var jshint = analyzejshint([].concat(paths.js, paths.nodejs));
+   var jscs = analyzejscs([].concat(paths.js, paths.nodejs));
 
    startPlatoVisualizer();
 
@@ -561,14 +561,14 @@ function analyzejscs(sources) {
 function startPlatoVisualizer() {
     log('Running Plato');
 
-    var files = glob.sync('../src/app/**/*.js');
-    var excludeFiles = /\.\.\/src\/app\/.*\.spec\.js/;
+    var files = glob.sync('../src/client/app/**/*.js');
+    var excludeFiles = /\.\.\/src\/client\/app\/.*\.spec\.js/;
 
     var options = {
         title: 'Plato Inspections Report',
         exclude: excludeFiles
     };
-    var outputDir = paths.report + 'plato';
+    var outputDir = '../report/plato';
 
     plato.inspect(files, outputDir, options, platoCompleted);
 

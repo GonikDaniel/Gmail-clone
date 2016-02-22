@@ -37,8 +37,11 @@
     "../src/client/app/**/*.js",
     "!../src/client/app/**/*.backup.js"
   ],
+  "nodejs": [
+    "../src/server/**/*.js"
+  ],
   "specs": [
-    "../src/client/test/specs/*.spec.js"
+    "../src/client/test/**/*.spec.js"
   ],
   "fonts": [
     "../src/client/scripts/font-awesome/fonts/**/*",

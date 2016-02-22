@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1456156590019" stop="1456156590046">
+	<title>TabNav directive</title>
+	<test-cases start="1456156590032" stop="1456156590045" status="passed">
+		<title>should check tab detection</title>
+	</test-cases>
+	<test-cases start="1456156590019" stop="1456156590045" status="passed">
+		<title>should set default totals</title>
+	</test-cases>
+	<test-cases start="1456156590030" stop="1456156590046" status="passed">
+		<title>should check box change with openBox method</title>
+	</test-cases>
+</ns2:test-suite>

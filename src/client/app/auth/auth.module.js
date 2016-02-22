@@ -36,7 +36,6 @@
     }
 
 
-
     AuthService.$inject = ['$rootScope', '$http', '$state', '$cookies', '$sessionStorage', 'Restangular'];
     /* @ngInject */
     function AuthService($rootScope, $http, $state, $cookies, $sessionStorage, Restangular) {
@@ -81,7 +80,6 @@
     }
 
 
-
     AuthInterceptor.$inject = ['$q', '$injector'];
     /* @ngInject */
     function AuthInterceptor($q, $injector) {
@@ -93,7 +91,7 @@
             if(response.status === 401) {
                 $injector.get('$state').go('login');
             } else if(response.status === 500) {
-                alert('ohhh')
+                alert('ohhh');
             }
             return $q.reject(response);
         }

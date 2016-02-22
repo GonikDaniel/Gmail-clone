@@ -41,13 +41,13 @@
 
         function getMailById(id) {
             var box = settings.getBox();
-            if (mailStorage[box]) {
-                var selectedMail = _.find(mailStorage[box], function(mail){
-                    return mail.id === +id;
-                });
+            // if (mailStorage[box]) {
+            //     var selectedMail = _.find(mailStorage[box], function(mail){
+            //         return mail.id === +id;
+            //     });
                 
-                selectedMail.unread = true;
-            }
+            //     selectedMail.unread = true;
+            // }
             return Restangular.one('mail', id).get();
         }
 
@@ -71,10 +71,12 @@
 
         function updateTotals(box, typeOfTotal, operator) {
             getAllMails();
-            if (operator === '-') {
-                totals[box] ? totals[box][typeOfTotal]-- : angular.noop();
-            } else if (operator === '+') {
-                totals[box] ? totals[box][typeOfTotal]++ : angular.noop();
+            if (totals[box]) {
+                if (operator === '-') {
+                    totals[box][typeOfTotal]--;
+                } else if (operator === '+') {
+                    totals[box][typeOfTotal]++;
+                }
             }
         }
 

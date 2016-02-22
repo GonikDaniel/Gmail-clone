@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns2:test-suite xmlns:ns2="urn:model.allure.qatools.yandex.ru" start="1456156555339" stop="1456156555371">
+	<title>MailReadController</title>
+	<test-cases start="1456156555339" stop="1456156555371" status="passed">
+		<title>mailId should be defined</title>
+	</test-cases>
+	<test-cases start="1456156555360" stop="1456156555371" status="passed">
+		<title>should create &quot;mail&quot; model with mail fetched from xhr</title>
+	</test-cases>
+</ns2:test-suite>

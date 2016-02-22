@@ -12,21 +12,25 @@
                 settings = _settings_;
             }));
 
-            it('should check default settings', function() {
+            it('should check default settings', function(done) {
                 expect(settings.getBox()).toBe('Inbox');
                 expect(settings.getPage()).toBe(1);
                 expect(settings.getMailsByPage()).toBe(20);
+
+                done();
             });
 
-            it('should check settings updates', function() {
-                settings.setBox('Sent')
+            it('should check settings updates', function(done) {
+                settings.setBox('Sent');
                 expect(settings.getBox()).toBe('Sent');
 
-                settings.setPage(33)
+                settings.setPage(33);
                 expect(settings.getPage()).toBe(33);
 
-                settings.setMailsByPage(100)
+                settings.setMailsByPage(100);
                 expect(settings.getMailsByPage()).toBe(100);
+
+                done();
             });
 
         });

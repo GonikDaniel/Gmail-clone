@@ -9,7 +9,8 @@ var lastId = 1;
 module.exports = {
   get: function(id) {
     return _.find(db2.mail, function(mail){
-      return mail.id === id;
+      var realId = (id > 1000) ? (id - 1000) : id;
+      return mail.id === realId;
     });
   },
   all: function() {

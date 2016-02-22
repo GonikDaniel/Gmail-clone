@@ -1,7 +1,7 @@
 <a href="" class="list-group-item" 
            ng-class="{ read: mail.read === true }" 
            data-mail-id="{{mail.id}}" 
-           ui-sref="read({mailId:mail.id})">
+           ui-sref="app.read({mailId:mail.id})">
     <div class="checkbox">
         <label>
             <input type="checkbox" ng-model="mail.selected">

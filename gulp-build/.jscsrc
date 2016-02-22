@@ -22,7 +22,7 @@
 
     "disallowMultipleLineStrings": true,
     "disallowMixedSpacesAndTabs": true,
-    "disallowTrailingWhitespace": true,
+    "disallowTrailingWhitespace": false,
     "disallowSpaceAfterPrefixUnaryOperators": true,
     "disallowMultipleVarDecl": null,
 
@@ -49,9 +49,11 @@
     "requireSpacesInConditionalExpression": true,
     "requireSpaceBeforeBlockStatements": true,
     "requireLineFeedAtFileEnd": true,
-    "disallowSpacesInsideObjectBrackets": "all",
+    "disallowSpacesInsideObjectBrackets": {
+        "allExcept": [ "{", "}", "(", ")" ]
+    },
     "disallowSpacesInsideArrayBrackets": "all",
-    "disallowSpacesInsideParentheses": true,
+    
 
 
     "validateJSDoc": {
@@ -60,11 +62,6 @@
     },
 
     "disallowMultipleLineBreaks": true,
-
-
-
-
-
 
 
     "requireLineFeedAtFileEnd": null,
