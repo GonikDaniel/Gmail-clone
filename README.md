@@ -5,6 +5,7 @@ Gmail-clone
 
 
 You can see it working [here](https://gmail-clone.herokuapp.com/) as well.
+Login/pass - admin@admin.com/admin
 
 ## Requirements ##
 

@@ -3,12 +3,12 @@
 
     angular.module('dgGmail')
 
-    .constant('ENV', 'production')
-    // .constant('ENV', 'dev')
+        .constant('ENV', 'production')
+        // .constant('ENV', 'dev')
 
-    .config(config)    
+        .config(config)    
 
-    .run(run);
+        .run(run);
 
     run.$inject = ['$rootScope', '$state', '$stateParams', '$urlMatcherFactory', 'SessionService'];
     function run($rootScope, $state, $stateParams, $urlMatcherFactory, SessionService) {
@@ -34,8 +34,8 @@
     }
 
 
-    config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 'RestangularProvider', 'ENV'];
-    function config($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, RestangularProvider, ENV) {
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider', 'RestangularProvider', 'ENV'];
+    function config($stateProvider, $urlRouterProvider, $httpProvider, RestangularProvider, ENV) {
         if( ENV === 'production' ) {
             RestangularProvider.setBaseUrl('https://gmail-clone.herokuapp.com/');
         } else {
