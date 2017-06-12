@@ -1,21 +1,78 @@
-body{ margin-top:50px;}
-.radio, .checkbox { min-height: 0; }
-.tab-pane .list-group .checkbox { top: 5px; }
-.nav-tabs .glyphicon:not(.no-margin) { margin-right:10px; }
-.tab-pane .list-group-item:first-child {border-top-right-radius: 0px;border-top-left-radius: 0px;}
-.tab-pane .list-group-item:last-child {border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;}
-.tab-pane .list-group .checkbox { display: inline-block;margin: 0px; }
-.tab-pane .list-group input[type="checkbox"]{ margin-top: 2px; }
-.tab-pane .list-group .glyphicon { margin-right:5px; }
-.tab-pane .list-group .glyphicon:hover { color:#FFBC00; }
-a.list-group-item.read { color: #222;background-color: #F3F3F3; }
-hr { margin-top: 5px;margin-bottom: 10px; }
-.nav-pills>li>a {padding: 5px 10px;}
+body{
+    margin-top:50px;
+}
 
-.mail-sender { min-width: 120px; display: inline-block; }
-.mail-content-short { font-size: 11px; }
-.full-mail { margin-top: 10px; }
-.full-mail-sender { margin-left: 10px; }
+.radio, .checkbox {
+    min-height: 0; 
+}
+
+.tab-pane .list-group .checkbox {
+    top: 5px; 
+}
+
+.nav-tabs .glyphicon:not(.no-margin) {
+    margin-right: 10px; 
+}
+
+.tab-pane .list-group-item:first-child {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.tab-pane .list-group-item:last-child {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.tab-pane .list-group .checkbox {
+    display: inline-block;
+    margin: 0px; 
+}
+
+.tab-pane .list-group input[type="checkbox"]{
+    margin-top: 2px; 
+}
+
+.tab-pane .list-group .glyphicon {
+    margin-right: 5px; 
+}
+
+.tab-pane .list-group .glyphicon:hover {
+    color: #FFBC00; 
+}
+
+a.list-group-item.read {
+    color: #222;
+    background-color: #F3F3F3; 
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 10px; 
+}
+
+.nav-pills>li>a {
+    padding: 5px 10px;
+}
+
+
+.mail-sender {
+    min-width: 120px;
+    display: inline-block;
+}
+
+.mail-content-short {
+    font-size: 11px;
+}
+
+.full-mail {
+    margin-top: 10px;
+}
+
+.full-mail-sender {
+    margin-left: 10px;
+}
+
 .full-mail-content { 
     font: 1.25em Arial,sans-serif;
     line-height: 1.5;
